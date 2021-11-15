@@ -3,19 +3,19 @@ create database edunovapp24;
 use edunovapp24;
 
 create table smjer(
-    sifra           int not null primary key auto_increment,
-    naziv           varchar(50) not null,
-    trajanje        int not null,
-    cijena          decimal(18,2),
-    certificiran    boolean
+    sifra int not null primary key auto_increment,
+    naziv varchar(50) not null,
+    trajanje int not null,
+    cijena decimal(18,2),
+    certificiran boolean
 );
 
 create table osoba(
-    sifra   int not null primary key auto_increment,
-    ime     varchar(50) not null,
+    sifra int not null primary key auto_increment,
+    ime varchar(50) not null,
     prezime varchar(50) not null,
-    oib     char(11),
-    email   varchar(50)
+    oib char(11),
+    email varchar(50)
 );
 
 create table grupa(
@@ -53,4 +53,3 @@ alter table polaznik add foreign key (osoba) references osoba(sifra);
 
 alter table clan add foreign key (grupa) references grupa(sifra);
 alter table clan add foreign key (polaznik) references polaznik(sifra);
-

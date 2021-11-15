@@ -14,4 +14,5 @@ create table opcina(
    naziv varchar(50)
 );
 
+
 alter table opcina add foreign key (zupanija) references zupanija(sifra);
