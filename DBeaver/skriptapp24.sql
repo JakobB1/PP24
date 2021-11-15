@@ -1,6 +1,8 @@
 drop database if exists edunovapp24;
-create database edunovapp24;
+create database edunovapp24 character set utf8;
 use edunovapp24;
+
+# c:\xampp\mysql\bin -uedunova -pedunova --default_character_set=utf8 < d:\skriptapp24.sql
 
 create table smjer(
     sifra int not null primary key auto_increment,
