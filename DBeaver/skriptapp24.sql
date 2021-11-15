@@ -1,25 +1,22 @@
-drop database if exists edunovapp24;
-create database edunovapp24;
-use edunovapp24;
-
+# Ovo je komentar i ne utječe na izvođenje
 drop database if exists edunovapp24;
 create database edunovapp24;
 use edunovapp24;
 
 create table smjer(
-    sifra int not null primary key auto_increment,
-    naziv varchar(50) not null,
-    trajanje int not null,
-    cijena decimal(18,2),
-    certifikat boolean
+    sifra           int not null primary key auto_increment,
+    naziv           varchar(50) not null,
+    trajanje        int not null,
+    cijena          decimal(18,2),
+    certificiran    boolean
 );
 
 create table osoba(
-    sifra int not null primary key auto_increment,
-    ime varchar(50) not null,
+    sifra   int not null primary key auto_increment,
+    ime     varchar(50) not null,
     prezime varchar(50) not null,
-    oib char(11),
-    email varchar(50)
+    oib     char(11),
+    email   varchar(50)
 );
 
 create table grupa(
@@ -47,12 +44,14 @@ create table clan(
     polaznik int not null
 );
 
-alter table grupa add foreign key (smjer) references nsmjer(sifra);
+
+alter table grupa add foreign key (smjer) references smjer(sifra);
 alter table grupa add foreign key (predavac) references predavac(sifra);
+
+alter table predavac add foreign key (osoba) references osoba(sifra);
+
+alter table polaznik add foreign key (osoba) references osoba(sifra);
 
 alter table clan add foreign key (grupa) references grupa(sifra);
 alter table clan add foreign key (polaznik) references polaznik(sifra);
 
-alter table polaznik add foreign key (osoba) references osoba(sifra);
-
-alter table predavac add foreign key (osoba) references osoba(sifra);
