@@ -4,8 +4,8 @@ use frizerskipp24;
 
 create table salon (
     sifra int not null primary key auto_increment,
-    djelatnica int not null,
-    usluga int not null
+    naziv varchar(50),
+    djelatnica int not null
 );
 
 create table djelatnica (
@@ -19,18 +19,18 @@ create table korisnik (
     sifra int not null primary key auto_increment,
     ime varchar(50) not null,
     email varchar(20),
-    usluga int
+    usluga int not null
 );
 
 create table usluga (
     sifra int not null primary key auto_increment,
-    ime varchar(50) not null,
+    naziv varchar(50) not null,
     cijena decimal(18,2)
 );
 
-alter table salon add foreign key (usluga) references usluga (sifra);
+
 alter table salon add foreign key (djelatnica) references djelatnica (sifra);
 
-alter table korisnik add foreign key (usluga) references usluga (sifra);
-
 alter table djelatnica add foreign key (korisnik) references korisnik (sifra);
+
+alter table korisnik add foreign key (usluga) references usluga (sifra);
