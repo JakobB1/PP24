@@ -1,4 +1,3 @@
-# Ovo je komentar i ne utječe na izvođenje
 drop database if exists edunovapp24;
 create database edunovapp24;
 use edunovapp24;
