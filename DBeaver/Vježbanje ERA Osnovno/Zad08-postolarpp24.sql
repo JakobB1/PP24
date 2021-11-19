@@ -1,6 +1,6 @@
-drop database if exists postolarp24;
-create database postolarp24;
-use postolarp24;
+drop database if exists postolarpp24;
+create database postolarpp24;
+use postolarpp24;
 
 create table postolar (
     sifra int not null primary key auto_increment,
