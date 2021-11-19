@@ -4,20 +4,20 @@ use muzejpp24;
 
 create table muzej (
     sifra int not null primary key auto_increment,
-    naziv varchar(50),
+    naziv varchar(50) not null,
     izlozba int not null
 );
 
 create table izlozba ( 
     sifra int not null primary key auto_increment,
-    naziv varchar(50),
+    naziv varchar(50) not null,
     djela int not null,
     sponzor int not null
 );
 
 create table djela (
     sifra int not null primary key auto_increment,
-    naziv varchar(50)
+    naziv varchar(50) not null
 );
 
 create table kustos (
@@ -30,7 +30,7 @@ create table kustos (
 
 create table sponzor (
     sifra int not null primary key auto_increment,
-    naziv varchar(50)
+    naziv varchar(50) not null
 );
 
 
