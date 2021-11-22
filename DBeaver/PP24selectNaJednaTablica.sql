@@ -64,3 +64,29 @@ select * from osoba where sifra in (3,5,7);
 
 select * from osoba where sifra>=5 and sifra<=10;
 select * from osoba where sifra between 5 and 10;
+
+
+
+# Baza mjesta
+select * from mjesto;
+# odaberite sva mjesta koja se nalaze u Osječko baranjskoj 
+# županiji
+
+
+select * from mjesto where postanskibroj like '31%';
+
+
+# odaberite sva mjesta koja u sebi imaju niz znakova ac
+select * from mjesto where naziv like '%ac%';
+
+
+# baza knjiznica
+# odaberite sve autore za koje ne znamo datum rođenja
+
+select * from autor;
+select * from autor where datumrodenja is null;
+
+select * from autor;
+insert into autor(sifra,ime,prezime)
+values (4,'Jakob','Brkic');
+select * from autor where ime='Jakob';
