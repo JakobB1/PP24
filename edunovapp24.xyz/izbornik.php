@@ -28,6 +28,7 @@
             <li><a target="_blank" href="operatori.php">Operatori</a></li>
             <li><a target="_blank" href="forpetlja.php">For petlja</a></li>
             <li><a target="_blank" href="nizovi.php">Nizovi (polja)</a></li>
+            <li><a target="_blank" href="whilepetlja.php">While petlja</a></li>
           </ul>
         </li>
       </ul>
