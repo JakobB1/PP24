@@ -25,6 +25,9 @@
             <li><a target="_blank" href="program1.php">1. program</a></li>
             <li><a target="_blank" href="zadatak1.php">zadatak1</a></li>
             <li><a target="_blank" href="uvjetnogrananjeswitch.php">Uvjetno grananje switch</a></li>
+            <li><a target="_blank" href="operatori.php">Operatori</a></li>
+            <li><a target="_blank" href="forpetlja.php">For petlja</a></li>
+            <li><a target="_blank" href="nizovi.php">Nizovi (polja)</a></li>
           </ul>
         </li>
       </ul>
