@@ -12,7 +12,7 @@ if(isset($_GET['broj1'])){
 if(isset($_GET['broj2'])){
     $b2=$_GET['broj2'];
 }else{
-    echo 'Obavezno postavljanje GET parametra broj1 koji je numeričkog tipa';
+    echo 'Obavezno postavljanje GET parametra broj2 koji je numeričkog tipa';
     exit;
 }
 

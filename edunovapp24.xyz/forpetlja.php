@@ -2,39 +2,39 @@
 
 // Jedno ispod drugog 10 puta ispišite Osijek
 /*
-echo 'Osijek <br/>';
-echo 'Osijek <br/>';
-echo 'Osijek <br/>';
-echo 'Osijek <br/>';
-echo 'Osijek <br/>';
-echo 'Osijek <br/>';
-echo 'Osijek <br/>';
-echo 'Osijek <br/>';
-echo 'Osijek <br/>';
-echo 'Osijek <br/>';
+echo 'Osijek<br/>';
+echo 'Osijek<br/>';
+echo 'Osijek<br/>';
+echo 'Osijek<br/>';
+echo 'Osijek<br/>';
+echo 'Osijek<br/>';
+echo 'Osijek<br/>';
+echo 'Osijek<br/>';
+echo 'Osijek<br/>';
+echo 'Osijek<br/>';
 */
 
-// for(od kuda; do kurad; uvećanje/umanjenje)
+// for(od kuda; do kuda; uvećanje/umanjenje)
 
-for($i=0;$i<10;$i++){ // ukoliko se for odnori samo na prvu liniju nakon fora tada ne trebaju {}
-    echo 'Osijek <br/>';
+for($i=0;$i<10;$i++){ //ukoliko se for odnosi samo na prvu liniju nakon for tada ne trebaju {}
+    echo 'Osijek<br/>';
 }
 
 echo '<hr />';
 
-for($i=0;$i<10;$i++){
+for($i=0;$i<10; $i++){
     echo $i+1, '<br />';
 }
 
 echo '<hr />';
 
-// ispiši svaki parni broj od 3 do 22
+//ispiši svaki parni broj od 3 do 22
 for($i=3;$i<22;$i++){
     if($i%2===0){
         echo $i, '<br />';
     }
 }
-
+echo '<hr />';
 //zbroji prvih 100 brojeva
 
 $suma = 0;
@@ -44,9 +44,6 @@ for($i=1;$i<=100;$i++){
 echo $suma, '<hr />';
 
 // Ispišite sve brojeve od 100 do 1 jedno pokraj drugog odvojeno zarezom
-for($i=100;$i>=1;$i--){
-    echo $i, ',';
-}
 
 $preskoci = [2,56,78,23,45];
 
@@ -56,7 +53,7 @@ for($i=0;$i<100;$i++){
         continue;
     }
 
-    echo $i, '<br />';
+    echo $i,'<br />';
 }
 echo $suma, '<hr />';
 

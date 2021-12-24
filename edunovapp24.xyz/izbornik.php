@@ -23,12 +23,12 @@
             <li><a target="_blank" href="uvjetnogrananjeif.php">Uvjetno grananje if</a></li>
             <li><a target="_blank" href="tipovipodataka.php">Tipovi podataka</a></li>
             <li><a target="_blank" href="program1.php">1. program</a></li>
-            <li><a target="_blank" href="zadatak1.php">zadatak1</a></li>
             <li><a target="_blank" href="uvjetnogrananjeswitch.php">Uvjetno grananje switch</a></li>
             <li><a target="_blank" href="operatori.php">Operatori</a></li>
             <li><a target="_blank" href="forpetlja.php">For petlja</a></li>
-            <li><a target="_blank" href="nizovi.php">Nizovi (polja)</a></li>
+            <li><a target="_blank" href="nizovi.php">Nizovi (polja) - Arrays</a></li>
             <li><a target="_blank" href="whilepetlja.php">While petlja</a></li>
+            <li><a target="_blank" href="program2.php">2. program</a></li>
           </ul>
         </li>
       </ul>

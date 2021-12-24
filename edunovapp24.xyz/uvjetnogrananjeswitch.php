@@ -15,5 +15,5 @@ switch($grad){
         echo ' na svijetu';
         break;
     default:
-        echo 'Ne znam';        
+        echo 'Ne znam';
 }
