@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+<!--Učiti HTML s https://developer.mozilla.org/en-US/docs/Web/HTML-->    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naslov stranice vidljiv u kartici preglednika</title>
+    <!-- 1. način učitanja CSS -->
+    <link rel="stylesheet" href="stil.css">
+
+    <!-- 2. način učitanja CSS -->
+    <style>
+        body{
+            background-color: azure;
+        }
+    </style>
 </head>
-<body>
+<!-- 3. način učitanja CSS -->
+<body style="background-color: #fff;">
     <h1>Edunova</h1>
     
+    <p>Ovo je paragraf.</p>
+    <p>Drugi paragraf.</p>
+    <p>Rečenica treća.</p>
+    <p class="crvena-pozadina">Ovdje će biti drugačijke</p>
+    <div class="crvena-pozadina">
+        Ovdje će biti kao i tamo gdje je drugačije
+    </div>
+    <a href="stranica.html">Druga stranica</a>
 </body>
 </html>
