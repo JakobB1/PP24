@@ -6,7 +6,7 @@
   <div class="top-bar" id="example-menu">
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
-        <li class="menu-text">PP24</li>
+        <li class="menu-text"><?php echo $naslovAPP; ?></li>
         <li>
           <a href="#">Stranice</a>
           <ul class="menu vertical">
@@ -14,6 +14,15 @@
             <li><a href="grid.php">Primjer korištenja grida</a></li>
             <li><a href="getparametar.php?tekst=Edunova&boja=azure">Rad s GET parametrima</a></li>
             <li><a href="getparametar.php?tekst=Osijek&boja=gray">Rad s GET parametrima #2</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Osnove programiranja</a>
+          <ul class="menu vertical">
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
           </ul>
         </li>
       </ul>
