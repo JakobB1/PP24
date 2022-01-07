@@ -19,7 +19,7 @@
         <li>
           <a href="#">Osnove programiranja</a>
           <ul class="menu vertical">
-            <li><a href=""></a></li>
+            <li><a target="_blank" href="varijable.php">Varijable</a></li>
             <li><a href=""></a></li>
             <li><a href=""></a></li>
             <li><a href=""></a></li>
