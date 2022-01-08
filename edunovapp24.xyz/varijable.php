@@ -18,3 +18,11 @@ echo '<p>', $iniz[0], '</p>'; // Ispisuje tekst Prvi
 echo '<pre>';
 print_r($iniz);
 echo '</pre>';
+
+//asocijativni nizovi
+$aniz = [
+    'kljuc'=>'vrijednost',
+    'A1'=>'Osijek',
+    'B2'=>'Edunova'
+];
+echo '<p>', $aaniz['A1'], '</p>';
