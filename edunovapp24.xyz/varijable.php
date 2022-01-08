@@ -25,4 +25,12 @@ $aniz = [
     'A1'=>'Osijek',
     'B2'=>'Edunova'
 ];
-echo '<p>', $aaniz['A1'], '</p>';
+echo '<p>', $aniz['A1'], '</p>';
+
+echo '<pre>';
+print_r($aniz);
+echo '</pre>';
+
+echo '<pre>';
+print_r($_GET);
+echo '</pre>';
