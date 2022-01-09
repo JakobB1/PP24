@@ -21,7 +21,7 @@
           <ul class="menu vertical">
             <li><a target="_blank" href="varijable.php">Varijable</a></li>
             <li><a target="_blank" href="uvjetnogrananjeif.php">Uvjetno grananje if</a></li>
-            <li><a href=""></a></li>
+            <li><a target="_blank" href="tipovipodataka.php">Tipovi podataka</a></li>
             <li><a href=""></a></li>
           </ul>
         </li>
