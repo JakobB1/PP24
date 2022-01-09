@@ -25,34 +25,34 @@ echo $t . $b; // nadoljepljivanje
 $x=1; $y=2;
 
 if($x>$y){
-    echo '1';
+    echo '1<hr/>';
 }
 
 if($x==$y){ // == provjerava samo po vrijednosti
-    echo '2'; 
+    echo '2<hr/>'; 
 }else{
-    echo '3';
+    echo '3<hr/>';
 }
 
 $x=1; $y='1';
 if($x==$y){ // ispisati će se broj 4 jer je x i y po vrijednosti jednaako
-    echo '4';
+    echo '4<hr/>';
 }
 
 if($x===$y){ // NEĆE se ispisati broj 5 jer je x i y iako su po vrijednosti jednako, ali nisu po tipu
-    echo '5';
+    echo '5<hr/>';
 }
 
 
 
 if($x===1){
-    echo '6';
+    echo '6<hr/>';
 }else if($x===2){
-    echo '7';
+    echo '7<hr/>';
 }else if($x===3){
-    echo '8';
+    echo '8<hr/>';
 }else{
-    echo '9';
+    echo '9<hr/>';
 }
 
 
@@ -60,8 +60,47 @@ if($x===1){
 
 if($x>4){
     if($y<3){
-        echo '10';
+        echo '10<hr/>';
     }
 }
 
+//gornje napisani izraz može ići 
 
+if($x>4 & $y<3){ // & uvijek provjerava oba uvjeta
+    echo '11<hr/>';
+}
+
+if($x>4 && $y<3){ // && ako prvi uvjet nije zadovoljen, neće se provjeravati drugi
+    echo '12<hr/>';
+}
+
+//OR
+if($x>4 | $y<3){ // | uvijek provjerava oba uvjeta
+    echo '13<hr/>';
+}
+
+if($x>4 || $y<3){ // || ako je prvi uvjet zadovoljen, neće se provjeravati drugi
+    echo '14<hr/>';
+} 
+
+// NOT
+
+if($x>4 & $y<3){ // & uvijek provjerava oba uvjeta
+    echo '15<hr/>';
+}
+
+if(!($x>4 && $y<3)){ // 
+    echo '16<hr/>';
+}
+
+// od korisnika želim uzeti vrijdnost za varijablu t a ako je ne stavi ja definiram 0
+
+if(isset($_GET['t'])){
+    $t=$_GET['t'];
+}else{
+    $t=0;
+}
+
+//inline if
+
+$t = isset($_GET['t']) ? $_GET['t'] : 0;
