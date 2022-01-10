@@ -24,6 +24,7 @@
             <li><a target="_blank" href="tipovipodataka.php">Tipovi podataka</a></li>
             <li><a targer="_blank "href="program1.php">1. program</a></li>
             <li><a targer="_blank "href="uvjetnogrananjeswitch.php">Uvjetno grananje switch</a></li>
+            <li><a targer="_blank "href="operatori.php">Operatori</a></li>
           </ul>
         </li>
       </ul>
