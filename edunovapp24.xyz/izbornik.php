@@ -29,6 +29,7 @@
             <li><a targer="_blank "href="nizovi.php">Nizovi (polja) - Arrays</a></li>
             <li><a targer="_blank "href="whilepetlja.php">While petlja</a></li>
             <li><a targer="_blank "href="program2.php">2. program</a></li>
+            <li><a targer="_blank "href="ciklicnamatrica.php">Ciklična matrica</a></li>
           </ul>
         </li>
       </ul>
