@@ -18,3 +18,10 @@ if(isset($_GET['p2'])){
 }
 
 $b=0;
+while($b<=$p1*$p2){
+    echo $b++ , '<br />';
+}
+echo '<hr />';
+for($i=0;$i<=$p1*$p2;$i++){
+    echo $i, '<br />';
+}
