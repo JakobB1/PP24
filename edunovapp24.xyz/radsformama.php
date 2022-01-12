@@ -1,3 +1,8 @@
+<?php
+
+$ime=isset($_GET['ime']) ? $_GET['ime'] : '';
+
+?>
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
@@ -9,11 +14,13 @@
       <div class="grid-x grid-padding-x" id="<?php echo 'stranica'; ?>">
         <div class="large-12 cell">
           <div class="callout">
-            <h1>
-              Dobrodošli
-            </h1>
-            Domaća zadaća:<br />
-            Isto ovo mrežno mjesto napraviti koristeći Bootstap
+            <form action="" method="get">
+            Ime
+            <input type="text" name="imess" id="">
+
+            <input type="submit" value="Odradi">
+            </form>
+            <?php echo $ime;?>
           </div>
         </div>
       </div>
