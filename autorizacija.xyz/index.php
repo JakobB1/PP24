@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="aautoriziraj.php" method="post">
+    <form action="autoriziraj.php" method="post">
         <label for="id">ID</label>
         <input type="text" name="id">
         <input type="submit" value="Prijava">
