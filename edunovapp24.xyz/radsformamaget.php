@@ -2,6 +2,7 @@
 
 $ime=isset($_GET['ime']) ? $_GET['ime'] : '';
 
+
 ?>
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
@@ -14,11 +15,11 @@ $ime=isset($_GET['ime']) ? $_GET['ime'] : '';
       <div class="grid-x grid-padding-x" id="<?php echo 'stranica'; ?>">
         <div class="large-12 cell">
           <div class="callout">
-            <form action="" method="get">
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="get">
             Ime
-            <input type="text" name="imess" id="">
+            <input type="text" name="ime" id="ime" value="<?php echo $ime;?>">
 
-            <input type="submit" value="Odradi">
+            <input class="button" type="submit" value="Odradi">
             </form>
             <?php echo $ime;?>
           </div>
