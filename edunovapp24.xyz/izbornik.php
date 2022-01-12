@@ -14,6 +14,7 @@
             <li><a href="grid.php">Primjer korištenja grida</a></li>
             <li><a href="getparametar.php?tekst=Edunova&boja=azure">Rad s GET parametrima</a></li>
             <li><a href="getparametar.php?tekst=Osijek&boja=gray">Rad s GET parametrima #2</a></li>
+            <li><a href="radsformama.php">Rad s formama</a></li>
           </ul>
         </li>
         <li>
@@ -30,6 +31,14 @@
             <li><a targer="_blank "href="whilepetlja.php">While petlja</a></li>
             <li><a targer="_blank "href="program2.php">2. program</a></li>
             <li><a targer="_blank "href="ciklicnamatrica.php">Ciklična matrica</a></li>
+           </ul>
+           <li>
+          <li>
+          <a href="#">Vježbanje</a>
+          <ul class="menu vertical">
+            <li><a href="z1.php">Zadatak 1</a></li>
+            <li><a href="z2.php">Zadatak 2</a></li>
+            <li><a href="z3.php">Zadatak 3</a></li>
           </ul>
         </li>
       </ul>
