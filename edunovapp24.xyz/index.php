@@ -10,7 +10,9 @@
         <div class="large-12 cell">
           <div class="callout">
             <h1>
+              <span>
               Dobrodošli
+              </span>
             </h1>
             Domaća zadaća:<br />
             Isto ovo mrežno mjesto napraviti koristeći Bootstap
