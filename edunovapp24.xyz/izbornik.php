@@ -33,7 +33,13 @@
             <li><a target="_blank" href="program2.php">2. program</a></li>
             <li><a target="_blank" href="predefiniranevrijednosti.php">Predefinirane vrijednosti</a></li>
           </ul>
-        </li>
+          </li>
+        <li>
+          <a href="#">Osnove programiranja</a>
+          <ul class="menu vertical">
+            <li><a target="_blank" href="funkcije.php">Funkcije</a></li>
+          </ul>
+          </li>
         <li>
           <a href="#">Vježbanje</a>
           <ul class="menu vertical">
