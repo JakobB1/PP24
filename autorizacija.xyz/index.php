@@ -9,7 +9,7 @@
 <body>
     <form action="autoriziraj.php" method="post">
         <label for="id">ID</label>
-        <input type="text" name="id">
+        <input type="text" name="id"  />
         <input type="submit" value="Prijava">
     </form>
 </body>

@@ -6,7 +6,7 @@ $var = 'Edunova';
 //korištenje varijable
 echo $var;
 
-// $ GET je niz
+// $_GET je niz
 echo '<p>' , $_GET['v1'], '</p>';
 
 //indeksni niz

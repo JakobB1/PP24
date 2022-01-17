@@ -1,6 +1,6 @@
 <?php
 
-$x=2;
+$x=2; // = je dodjeljivanje vrijednost
 $y=1;
 
 // + - * / == === & && | || ! nema potrebe za primjerima
@@ -22,7 +22,7 @@ $r++; //4
 
 echo ++$r, '<hr />'; //6
 
-echo $r++, '<hr />'; // ispisuje 6, nakon ispisa vrijednost je 7
+echo $r++, '<hr />'; // ispisuje 6, nakon ispisa vrijednot je 7
 
 echo $r, '<hr />'; //7
 
@@ -34,15 +34,15 @@ echo $r, '<hr />'; //5
 
 // karakteristični zadatak na razgovoru za posao programera
 
-$i=1; $j=0; 
+$i=1; $j=0;
 
 $i += ++$j - 1; //i=1
-$j = $i--; //j=1, $i=0
+$j = $i--; //j=1, i=0
 echo $i+$j, '<hr />'; // 1
 
 // modulo % je ostatak nakon cjelobrojnog djeljenja
 
-echo $r % 2, '<hr />'; 
+echo $r % 2, '<hr />';
 
 $b = 17;
 if($b%2===0){

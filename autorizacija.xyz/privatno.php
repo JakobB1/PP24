@@ -1,11 +1,10 @@
-<?php
+<?php 
 
 session_start();
-if(isset($_SESSION['autorizirann'])){
+if(!isset($_SESSION['autoriziran'])){
     header('location: index.php');
     exit;
 }
-
 
 ?>
 <!DOCTYPE html>

@@ -16,7 +16,7 @@ echo 'Osijek<br/>';
 
 // for(od kuda; do kuda; uvećanje/umanjenje)
 
-for($i=0;$i<10;$i++){ //ukoliko se for odnosi samo na prvu liniju nakon for tada  ne trebaju {}
+for($i=0;$i<10;$i++){ //ukoliko se for odnosi samo na prvu liniju nakon for tada ne trebaju {}
     echo 'Osijek<br/>';
 }
 
@@ -43,11 +43,7 @@ for($i=1;$i<=100;$i++){
 }
 echo $suma, '<hr />';
 
-// Ispišite sve brojeve 100 do 1 jedno pokraj drugog odvojeno zarezom
-
-for($i=100;$i>=1;$i--){
-    echo $i, ',';
-}
+// Ispišite sve brojeve od 100 do 1 jedno pokraj drugog odvojeno zarezom
 
 $preskoci = [2,56,78,23,45];
 
@@ -59,6 +55,7 @@ for($i=0;$i<100;$i++){
 
     echo $i,'<br />';
 }
+echo $suma, '<hr />';
 
 // nasilno prekidanje petlje
 for($i=0;$i<100;$i++){
@@ -72,13 +69,14 @@ for($i=0;$i<100;$i++){
 // petlje se mogu ugnjezditi
 echo '<table>';
 for($i=0;$i<10;$i++){
-   echo '<tr>';
+    echo '<tr>';
     for($j=0;$j<10;$j++){
-        echo  '<td style="text-align: right">', ($i+1) * ($j+1), '</td>';
+        echo '<td style="text-align: right;">', ($i+1) * ($j+1), '</td>';
     }
     echo '</tr>';
 }
 echo '</table>';
+
 
 // beskonačna petlja
 for(;;){

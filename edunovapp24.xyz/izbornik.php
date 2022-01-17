@@ -24,23 +24,22 @@
             <li><a target="_blank" href="varijable.php">Varijable</a></li>
             <li><a target="_blank" href="uvjetnogrananjeif.php">Uvjetno grananje if</a></li>
             <li><a target="_blank" href="tipovipodataka.php">Tipovi podataka</a></li>
-            <li><a targer="_blank "href="program1.php">1. program</a></li>
-            <li><a targer="_blank "href="uvjetnogrananjeswitch.php">Uvjetno grananje switch</a></li>
-            <li><a targer="_blank "href="operatori.php">Operatori</a></li>
-            <li><a targer="_blank "href="forpetlja.php">For petlja</a></li>
-            <li><a targer="_blank "href="nizovi.php">Nizovi (polja) - Arrays</a></li>
-            <li><a targer="_blank "href="whilepetlja.php">While petlja</a></li>
-            <li><a targer="_blank "href="program2.php">2. program</a></li>
-            <li><a targer="_blank "href="ciklicnamatrica.php">Ciklična matrica</a></li>
-            <li><a targer="_blank "href="predefiniranevrijednosti.php">Predefinirane vrijednosti</a></li>
-           </ul>
-           <li>
-          <li>
+            <li><a target="_blank" href="program1.php">1. program</a></li>
+            <li><a target="_blank" href="uvjetnogrananjeswitch.php">Uvjetno grananje switch</a></li>
+            <li><a target="_blank" href="operatori.php">Operatori</a></li>
+            <li><a target="_blank" href="forpetlja.php">For petlja</a></li>
+            <li><a target="_blank" href="nizovi.php">Nizovi (polja) - Arrays</a></li>
+            <li><a target="_blank" href="whilepetlja.php">While petlja</a></li>
+            <li><a target="_blank" href="program2.php">2. program</a></li>
+            <li><a target="_blank" href="predefiniranevrijednosti.php">Predefinirane vrijednosti</a></li>
+          </ul>
+        </li>
+        <li>
           <a href="#">Vježbanje</a>
           <ul class="menu vertical">
-            <li><a href="z1.php">Zadatak 1</a></li>
-            <li><a href="z2.php">Zadatak 2</a></li>
-            <li><a href="z3.php">Zadatak 3</a></li>
+            <li><a target="_blank" href="z1.php">Zadatak 1</a></li>
+            <li><a target="_blank" href="z2.php">Zadatak 2</a></li>
+            <li><a target="_blank" href="z3.php">Zadatak 3</a></li>
           </ul>
         </li>
       </ul>

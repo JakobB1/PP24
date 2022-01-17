@@ -13,7 +13,7 @@ if(isset($_GET['p1'])){
 if(isset($_GET['p2'])){
     $p2 = $_GET['p2'];
 }else{
-    echo 'Obavezno unos 2. broja kao GET parametar 21';
+    echo 'Obavezno unos 2. broja kao GET parametar p2';
     exit;
 }
 

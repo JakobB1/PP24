@@ -1,0 +1,3 @@
+Implementirati autorizaciju koristeći Foundation RWD na novom vhost: fauth.xyz
+
+Rješenje postaviti na polaznikxx.edunova.hr

@@ -1,12 +1,12 @@
 <?php
 
-// while petlja radi s boolean tipom podatka
+// while petlja radi s boolean tipom podatke
 
-$i=0; 
+$i=0;
 $uvjet = $i<10;
 
-while($uvjet){
-    echo $i, '<br />';
+while($uvjet){ // ovo se rjeđe vidi
+    echo $i , '<br />';
     $uvjet = ++$i<10;
 }
 
@@ -14,22 +14,22 @@ echo '<hr />';
 $i=0;
 // jedan od češćih načina
 while ($i<10){
-    echo $i, '<br />';
+    echo $i , '<br />';
     $i++;
 }
 
 
 echo '<hr />';
 $i=0;
-// jedaan od češćih načina
+// jedan od češćih načina
 while ($i<10){
-    echo $i++, '<br />';
+    echo $i++ , '<br />';
 }
 
 // vrijede ista pravila za continue i break
-// ugnjnežđivanje jednnako kao kod for
+// ugnježđivanje jednako kao kod for
 
-// beskonačnna petlja
+// beskonačna petlja
 
 while(true){
     echo 'Osijek';
