@@ -16,6 +16,7 @@
             <li><a href="getparametar.php?tekst=Osijek&boja=gray">Rad s GET parametrima #2</a></li>
             <li><a href="radsformamaget.php">Rad s formama GET</a></li>
             <li><a href="radsformamapost.php">Rad s formama POST</a></li>
+            <li><a href="unososoba.php">Unos osoba</a></li>
           </ul>
         </li>
         <li>
@@ -32,6 +33,7 @@
             <li><a target="_blank" href="whilepetlja.php">While petlja</a></li>
             <li><a target="_blank" href="program2.php">2. program</a></li>
             <li><a target="_blank" href="predefiniranevrijednosti.php">Predefinirane vrijednosti</a></li>
+            <li><a target="_blank" href="foreach.php">For each petlja</a></li>
           </ul>
         </li>
         <li>
@@ -49,6 +51,7 @@
             <li><a target="_blank" href="z3.php">Zadatak 3</a></li>
             <li><a target="_blank" href="z4.php">Zadatak 4</a></li>
             <li><a target="_blank" href="z5.php">Zadatak 5</a></li>
+            <li><a target="_blank" href="z6.php">Zadatak 6</a></li>
           </ul>
         </li>
       </ul>
