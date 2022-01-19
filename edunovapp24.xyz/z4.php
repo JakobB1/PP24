@@ -1,12 +1,11 @@
 <?php
 
-// Napišite funkciju najmanji koja iz primljenog niza
+// Napišite funkciju koja iz primljenog niza 
 // ispisuje najmanji broj
 // primljeni niz je indeksni niz koji sadrži samo brojeve
 
-//od verzije PHP 8 moguće je za svaki parametar naznačiti kojeg je tipa (array)
-// moguče je za funkciju naznačiti kojeg je tipa (:void) - vod označava da ne vraća vrijednost
-// https://www.php.net/releases/8.0/en.php
+// od verzije PHP 8 moguće je za svaki parametar naznačiti kojeg je tipa (array)
+// moguće je za funkciju naznačiti kojeg je tipa (:void) - void označava da ne vraća vrijednost
 function najmanji(array $niz): void
 {
     if(gettype($niz)!=='array'){
