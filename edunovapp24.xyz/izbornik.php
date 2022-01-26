@@ -41,6 +41,7 @@
           <a href="#">Objektno orjentirano programiranje</a>
           <ul class="menu vertical">
             <li><a target="_blank" href="klasaobjekt.php">Klasa i objekt</a></li>
+            <li><a target="_blank" href="objektiinizovi.php">Objekti i nizovi</a></li>
           </ul>
         </li>
         <li>
