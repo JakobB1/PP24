@@ -32,3 +32,4 @@ class Osoba
 $o = new Osoba('Maja'); // ključna riječ new je poziv metode __construct
 //$o->setIme('Drugo');
 echo $o->getIme();
+
