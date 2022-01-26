@@ -38,6 +38,12 @@
           </ul>
         </li>
         <li>
+          <a href="#">Objektno orjentirano programiranje</a>
+          <ul class="menu vertical">
+            <li><a target="_blank" href="klasaobjekt.php">Klasa i objekt</a></li>
+          </ul>
+        </li>
+        <li>
           <a href="#">Programiranje</a>
           <ul class="menu vertical">
             <li><a target="_blank" href="definiranjefunkcija.php">Definiranje funkcija</a></li>
