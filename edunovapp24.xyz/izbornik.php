@@ -44,6 +44,7 @@
             <li><a target="_blank" href="objektiinizovi.php">Objekti i nizovi</a></li>
             <li><a target="_blank" href="ucahurivanje.php">Učahurivanje</a></li>
             <li><a target="_blank" href="konstruktor.php">Konstruktor</a></li>
+            <li><a target="_blank" href="nasljedivanje.php">Nasljeđivanje</a></li>
           </ul>
         </li>
         <li>
