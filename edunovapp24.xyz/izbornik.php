@@ -43,6 +43,7 @@
             <li><a target="_blank" href="klasaobjekt.php">Klasa i objekt</a></li>
             <li><a target="_blank" href="objektiinizovi.php">Objekti i nizovi</a></li>
             <li><a target="_blank" href="ucahurivanje.php">Učahurivanje</a></li>
+            <li><a target="_blank" href="konstruktor.php">Konstruktor</a></li>
           </ul>
         </li>
         <li>
