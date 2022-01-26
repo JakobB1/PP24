@@ -34,6 +34,7 @@
             <li><a target="_blank" href="program2.php">2. program</a></li>
             <li><a target="_blank" href="predefiniranevrijednosti.php">Predefinirane vrijednosti</a></li>
             <li><a target="_blank" href="foreach.php">For each petlja</a></li>
+            <li><a target="_blank" href="dowhile.php">Do while petlja</a></li>
           </ul>
         </li>
         <li>
