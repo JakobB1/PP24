@@ -33,18 +33,19 @@
             <li><a target="_blank" href="whilepetlja.php">While petlja</a></li>
             <li><a target="_blank" href="program2.php">2. program</a></li>
             <li><a target="_blank" href="predefiniranevrijednosti.php">Predefinirane vrijednosti</a></li>
-            <li><a target="_blank" href="foreach.php">For each petlja</a></li>
+            <li><a target="_blank" href="foreach.php">Foreach petlja</a></li>
             <li><a target="_blank" href="dowhile.php">Do while petlja</a></li>
           </ul>
         </li>
         <li>
-          <a href="#">Objektno orjentirano programiranje</a>
+          <a href="#">Objektno orjentirano programiranje (OOP)</a>
           <ul class="menu vertical">
             <li><a target="_blank" href="klasaobjekt.php">Klasa i objekt</a></li>
             <li><a target="_blank" href="objektiinizovi.php">Objekti i nizovi</a></li>
             <li><a target="_blank" href="ucahurivanje.php">Učahurivanje</a></li>
             <li><a target="_blank" href="konstruktor.php">Konstruktor</a></li>
             <li><a target="_blank" href="nasljedivanje.php">Nasljeđivanje</a></li>
+            <li><a target="_blank" href="https://github.com/tjakopec/OOP_JAVA_PHP_PYTHON_SWIFT">Daljnje čitanje</a></li>
           </ul>
         </li>
         <li>
