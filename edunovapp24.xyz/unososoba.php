@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 if(!isset($_SESSION['podaci'])){
   $_SESSION['podaci'] = [];
@@ -23,24 +23,24 @@ if(isset($_POST['ime'])
         <div class="large-12 cell">
           <div class="callout">
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-            <div class="grid-x grid-padding-x">
-            <div class="large-4 cell">
-              <label for="ime">Ime</label>
-              <input type="text" name="ime" id="ime" />
-            </div>
-            <div class="large-4 cell">
-              <label for="prezime">Prezime</label>
-              <input type="text" name="prezime" id="prezime" />
-              </div>
-              <div class="large-2 cell" style="padding: 25px;">
-              <input type="submit" name="Unesi" id="button" />
-              </div>
+              <div class="grid-x grid-padding-x">
+                <div class="large-5 small-12 cell">
+                  <label for="ime">Ime</label>
+                  <input type="text" name="ime" id="ime" />
+                </div>
+                <div class="large-5 small-6 cell">
+                  <label for="prezime">Prezme</label>
+                  <input type="text" name="prezime" id="prezime" />
+                </div>
+                <div class="large-2 small-6 cell" style="padding: 25px;">
+                  <input type="submit" value="Unesi" class="button" />
+                </div>
               </div>
             </form>
             <ol>
-              <?php foreach($_SESSION['podaci'] as $p):  ?>
+              <?php foreach($_SESSION['podaci'] as $p): ?>
                 <li><?php echo $p['ime'] . ' ' . $p['prezime'] ?></li>
-                <?php endforeach ?>
+              <?php endforeach; ?>
             </ol>
           </div>
         </div>
