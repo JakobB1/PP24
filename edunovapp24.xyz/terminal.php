@@ -22,10 +22,34 @@ function izbornik()
     }
 }
 
+function ispisPostojecih()
+{
+    if(count($GLOBALS['podaci'])===0){
+        echo 'Nema unesenih osoba' . PHP_EOL;
+    }else{
+        foreach($GLOBALS['podaci'] as $osoba){
+            print $osoba->ime . ' ' . $osoba->prezime . PHP_EOL;
+        }
+    }
+
+    izbornik();
+}
+
+function unosNoveOsobe()
+{
+    $osoba = new stdClass();
+    echo 'Unesi ime: ';
+    $terminal = fopen('php://stdin','r');
+    $unosKorisnika = fgets($terminal);
+    $osoba->ime = $unosKorisnika;
+    echo 'Unesi prezime: ';
+    $osoba->prezime = fgets($terminal);
+    $GLOBALS['podaci'][]=$osoba;
+    //print_r($GLOBALS);
+    izbornik();
+}
+
 // ova datoteka se izvodi iz VSC terminala ili CMD
 echo "Moja konzolna aplikacija\n"; // \n je novi red
 echo 'V1' . PHP_EOL; 
 izbornik();
-
-
-echo 'Korisnik je unio ' . $unosKorisnika;
