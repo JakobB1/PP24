@@ -16,4 +16,9 @@ echo '</pre>';
 
 foreach($rezultati as $red){
     echo $red->prezime . '<br />';
+    $red->grad='Osijek';
 }
+
+echo '<pre>';
+print_r($rezultati);
+echo '</pre>';
