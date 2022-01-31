@@ -46,6 +46,8 @@
             <li><a target="_blank" href="konstruktor.php">Konstruktor</a></li>
             <li><a target="_blank" href="nasljedivanje.php">Nasljeđivanje</a></li>
             <li><a target="_blank" href="https://github.com/tjakopec/OOP_JAVA_PHP_PYTHON_SWIFT">Daljnje čitanje</a></li>
+            <li><a target="_blank" href="magicnemetode.php">Magične metode</a></li>
+            <li><a target="_blank" href="koristenjepdoklase.php">Korištenje PDO klase</a></li>
           </ul>
         </li>
         <li>
