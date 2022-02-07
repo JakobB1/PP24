@@ -1,9 +1,13 @@
 <?php
 
-class App 
+class App
 {
     public static function start()
     {
-        echo 'Hello world';
+        //echo '<pre>';
+        //print_r($_SERVER);
+        //echo '</pre>';
+        $ruta = Request::getRuta();
+        echo $ruta;
     }
 }
