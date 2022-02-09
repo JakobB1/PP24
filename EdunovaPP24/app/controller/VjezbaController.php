@@ -30,5 +30,35 @@ class VjezbaController
         ]);
     }
 
+    public function primjer3()
+    {
+        $parniBrojevi=[];
+        for($i=1;$i<=99;$i++){
+            if($i%2===0){
+                $parniBrojevi[]=$i;
+            }
+        }
+
+        $view = new View();
+        $view->render('primjer3',[
+            'parniBrojevi'=>$parniBrojevi
+        ]);
+    }
+
+    public function primjer3lose()
+    {
+        $parniBrojevi='';
+        for($i=1;$i<=99;$i++){
+            if($i%2===0){
+                $parniBrojevi.='<li>'.$i.'</li>';
+            }
+        }
+
+        $view = new View();
+        $view->render('primjer3lose',[
+            'parniBrojevi'=>$parniBrojevi
+        ]);
+    }
+
 
 }
