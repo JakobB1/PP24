@@ -19,6 +19,7 @@ class VjezbaController
         $niz=[
             'Osijek', 'Zagreb', 'Donji Miholjac'
         ];
+        shuffle($niz);
 
         $view = new View();
         $view->render('ispisParametara',[
