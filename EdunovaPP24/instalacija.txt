@@ -9,3 +9,5 @@ U ovom repozitoriju će biti kod s nastave.
 Doma si kreirati dva nova projekta
 1. Projekt gdje Vi kucate (vježbate ono što smo radili na nastavi) - ne mora na git
 2. Projekt Završni rad koji ide na git
+
+Poigrati se s VSC snippets https://code.visualstudio.com/docs/editor/userdefinedsnippets

@@ -1,11 +1,13 @@
 <?php
 
-class VjezbaController
+class VjezbaController extends Controller
 {
+
+    private $viewDir = 'vjezbanje' . DIRECTORY_SEPARATOR;
+
     public function primjer1()
     {
-        $view = new View();
-        $view->render('primjer1');
+        $this->view->render($this->viewDir . 'primjer1');
     }
 
     public function primjer2()
@@ -21,8 +23,8 @@ class VjezbaController
         ];
         shuffle($niz);
 
-        $view = new View();
-        $view->render('ispisParametara',[
+
+        $this->view->render($this->viewDir . 'ispisParametara',[
             'slucajniBroj'=>$sb,
             'skola'=>$ime,
             'voditelj'=>$o,
@@ -39,8 +41,7 @@ class VjezbaController
             }
         }
 
-        $view = new View();
-        $view->render('primjer3',[
+        $this->view->render($this->viewDir . 'primjer3',[
             'parniBrojevi'=>$parniBrojevi
         ]);
     }
@@ -54,8 +55,7 @@ class VjezbaController
             }
         }
 
-        $view = new View();
-        $view->render('primjer3lose',[
+        $this->view->render($this->viewDir . 'primjer3lose',[
             'parniBrojevi'=>$parniBrojevi
         ]);
     }
