@@ -8,6 +8,9 @@
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="menu-text"><?=App::config('naslovApp')?></li>
       <li><a href="<?=App::config('url')?>">Početna</a></li>
+      <?php if(App::autoriziran()):?>
+        <li><a href="<?=App::config('url')?>nadzornaploca/index">Nadzorna ploča</a></li>
+      <?php endif;?>
       <li class="has-submenu">
         <a href="#0">Vježbanje</a>
         <ul class="submenu menu vertical" data-submenu>
@@ -17,14 +20,27 @@
           <li><a href="<?=App::config('url')?>vjezba/primjer3lose">Primjer 3 LOŠE</a></li>
         </ul>
       </li>
-      
-      <li><a href="#0">Three</a></li>
+      <?php if(App::autoriziran()):?>
+        <li><a href="#">Programi</a>
+          <ul class="submenu menu vertical" data-submenu>
+            <li><a href="<?=App::config('url')?>smjer/index">Smjerovi</a></li>
+            <li><a href="<?=App::config('url')?>polaznik/index">Polaznici</a></li>
+            <li><a href="<?=App::config('url')?>predavac/index">Predavači</a></li>
+            <li><a href="<?=App::config('url')?>grupa/index">Grupe</a></li>
+          </ul>
+        </li>
+      <?php endif;?>
     </ul>
   </div>
   <div class="top-bar-right">
     <ul class="menu">
-      <li><input type="search" placeholder="Search"></li>
-      <li><button type="button" class="button">Search</button></li>
+      <li>
+        <?php if(App::autoriziran()):?>
+          <a href="<?=App::config('url')?>login/odjava">Odjavi <?php echo $_SESSION['autoriziran']->ime ?></a>
+        <?php else:?>
+          <a href="<?=App::config('url')?>login/index">Login</a>
+        <?php endif;?>
+      </li>
     </ul>
   </div>
 </div>
