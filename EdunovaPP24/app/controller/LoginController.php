@@ -24,16 +24,6 @@ class LoginController extends Controller
             return;
          }
 
-         // 100% sam siguran da je korisnik unio email i lozinku
-         $operater = Operater::autoriziraj($_POST['email'],$_POST['lozinka']);
-         if($operater==null){
-             $this->loginView('Neispravna kombinacija email i lozinka',$_POST['email']);
-             return;
-         }
-
-         $_SESSION['autoriziran']=$operater;
-         $np = new NadzornaplocaController();
-         $np->index();
     }
 
     public function odjava()
