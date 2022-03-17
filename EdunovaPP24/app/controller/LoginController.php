@@ -22,8 +22,14 @@ class LoginController extends Controller
         if(strlen(trim($_POST['lozinka']))===0){
             $this->loginView('Lozinka obavezno',$_POST['email']);
             return;
-         }
+        }
 
+        // 100% sam siguran da je korisnik unio email i lozinku
+        $operater = Operater::autoriziraj($_POST['email'],$_POST['lozinka']);
+        if($operater==null){
+            $this->loginView('Neispravna kombinacija email i lozinka',$_POST['email']);
+            return;
+        }
     }
 
     public function odjava()
