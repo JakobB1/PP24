@@ -60,5 +60,18 @@ class VjezbaController extends Controller
         ]);
     }
 
+    public function testbaza()
+    {
+        $veza = DB::getInstanca();
+        $izraz = $veza->prepare('select * from smjer');
+        $izraz->execute();
+        print_r($izraz->fetchAll());
+    }
+
+    public function lozinka()
+    {
+       echo password_hash('a',PASSWORD_BCRYPT);
+    }
+
 
 }
