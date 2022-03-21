@@ -39,23 +39,23 @@
                     <?php endif;?>
                 </td>
                 <td>
-            <a href="<?=App::config('url')?>smjer/promjena/<?=$smjer->sifra?>">
+                <a href="<?=App::config('url')?>smjer/promjena/<?=$smjer->sifra?>">
                     <i title="Promjeni &quot;<?=$smjer->naziv?>&quot;" 
                         class="fas fa-2x fa-edit"></i>
-                </a>  
-            <?php if($smjer->grupa==0): ?>
-                <a style="margin-left:20px;" href="<?=App::config('url')?>smjer/brisanje?sifra=<?=$smjer->sifra?>">
-                <i style="color: red" title="Obriši <?=$smjer->naziv?>" 
-                    class="fas fa-2x fa-trash"></i>
-            </a>
-            <?php else:?>
+                </a>   
+                <?php if($smjer->grupa==0): ?>
+                    <a onclick="return confirm('Sigurno obrisati <?=$smjer->naziv?>?');" style="margin-left: 20px;" href="<?=App::config('url')?>smjer/brisanje/<?=$smjer->sifra?>">
+                        <i style="color: red" title="Obriši <?=$smjer->naziv?>" 
+                            class="fas fa-2x fa-trash"></i>
+                    </a>  
+                <?php else:?>
                     <i style="margin-left: 20px;color: gray" 
                     title="Ne može se obrisati <?=$smjer->naziv?> jer ima grupe" 
                             class="fas fa-2x fa-trash"></i>
-                <?php endif;?> 
-            
-            </td>
-        </tr>
+                <?php endif;?>
+                 
+                </td>
+            </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
@@ -63,7 +63,7 @@
 
 <!-- Korištenje liste  
 <ol>  
-<?php foreach($smjerovi as $smjer): ?>
+    <?php foreach($smjerovi as $smjer): ?>
         <li><?=$smjer->naziv?></li>
     <?php endforeach; ?>
 </ol>

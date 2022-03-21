@@ -26,4 +26,15 @@ class Smjer
     //U - Update
 
     //D - Delete
+    public static function delete($sifra)
+    {
+        $veza = DB::getInstanca();
+        $izraz = $veza->prepare('
+        
+            delete from smjer where sifra=:sifra;
+        
+        '); 
+        $izraz->execute(['sifra'=>$sifra]);
+
+    }
 }
