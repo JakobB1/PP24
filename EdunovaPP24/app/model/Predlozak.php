@@ -1,6 +1,6 @@
 <?php
 
-class Smjer
+class Predlozak
 {
 
 
@@ -9,7 +9,7 @@ class Smjer
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-            select * from smjer where sifra=:parametar;
+        SQL select za promjenu
         
         '); 
         $izraz->execute(['parametar'=>$kljuc]);
@@ -24,12 +24,7 @@ class Smjer
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-            select a.sifra, a.naziv, a.trajanje, a.cijena , a.certificiran,
-            count(b.sifra) as grupa
-            from smjer a left join grupa b
-            on a.sifra =b.smjer 
-            group by a.sifra, a.naziv, a.trajanje, a.cijena , a.certificiran
-            order by 5 desc, 2;
+        SQL SELECT lista za index
         
         '); 
         $izraz->execute();
@@ -43,8 +38,7 @@ class Smjer
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-            insert into smjer (naziv,trajanje,cijena,certificiran)
-            values (:naziv,:trajanje,:cijena,:certificiran);
+        SQL INSERT
         
         '); 
         $izraz->execute($parametri);
@@ -58,12 +52,7 @@ class Smjer
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-            update smjer set 
-                naziv=:naziv,
-                trajanje=:trajanje,
-                cijena=:cijena,
-                certificiran=:certificiran
-                where sifra=:sifra;
+        SQL UPDATE
         
         '); 
         $izraz->execute($parametri);
@@ -76,7 +65,7 @@ class Smjer
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-            delete from smjer where sifra=:sifra;
+            SQL DELETE
         
         '); 
         $izraz->execute(['sifra'=>$sifra]);

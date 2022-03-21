@@ -1,7 +1,7 @@
-<form action="<?=App::config('url')?>smjer/dodajNovi" method="post">
+<form action="<?=App::config('url')?>smjer/promjeni" method="post">
 
     <fieldset>
-        <legend>Dodavanje novog smjera</legend>
+        <legend>Promjena postojećeg smjera</legend>
 
 
         <label>
@@ -29,13 +29,15 @@
         values="0">
         <label for="ne">NE</label>
 
+        <input type="hidden" name="sifra" value="<?=$smjer->sifra?>">
+
         <div class="grid-x grid-padding-x">
             <div class="large-4 cell">
                 <a  class="alert button expanded" 
                 href="<?=App::config('url')?>smjer/index">Odustani</a>
             </div>
             <div class="large-8 cell">
-                <input type="submit" class="success button expanded" value="Dodaj novi">
+                <input type="submit" class="success button expanded" value="Promjeni">
             </div>
         </div>
         <?=$poruka?>
