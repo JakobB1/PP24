@@ -53,33 +53,8 @@ class Smjer
     
 
     //U - Update
-    public static function update($parametri)
-    {
-        $veza = DB::getInstanca();
-        $izraz = $veza->prepare('
-        
-            update smjer set 
-                naziv=:naziv,
-                trajanje=:trajanje,
-                cijena=:cijena,
-                certificiran=:certificiran
-                where sifra=:sifra;
-        
-        '); 
-        $izraz->execute($parametri);
-        
-    }
+    
 
     //D - Delete
-    public static function delete($sifra)
-    {
-        $veza = DB::getInstanca();
-        $izraz = $veza->prepare('
-        
-            delete from smjer where sifra=:sifra;
-        
-        '); 
-        $izraz->execute(['sifra'=>$sifra]);
-
-    }
+    
 }
