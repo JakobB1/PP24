@@ -1,6 +1,8 @@
 # omogućiti URL rewrite
 RewriteEngine On
 
+# Postavljanje na ubutu serveru: https://www.digitalocean.com/community/tutorials/how-to-rewrite-urls-with-mod_rewrite-for-apache-on-ubuntu-16-04
+
 # preskoči ukoliko postoji datoteka
 RewriteCond %{REQUEST_FILENAME} !-f
 
