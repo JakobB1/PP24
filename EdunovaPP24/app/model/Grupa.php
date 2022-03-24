@@ -3,6 +3,23 @@
 class Grupa
 {
 
+    public static function odustajanje($kljuc)
+    {
+        $veza = DB::getInstanca();
+        $izraz = $veza->prepare('
+        
+            select count(*) from grupa 
+            where sifra=:parametar
+            and naziv=\'Nova grupa\'
+            and predavac is null
+            and datumpocetka is null
+            and smjer=(select sifra from smjer order by certificiran desc, naziv limit 1);
+        
+        '); 
+        $izraz->execute(['parametar'=>$kljuc]);
+        return $izraz->fetchColumn()==1 ? true : false;
+    }
+
 
     public static function readOne($kljuc)
     {
@@ -53,7 +70,7 @@ class Grupa
         
         '); 
         $izraz->execute($parametri);
-        
+        return $veza->lastInsertId();
     }
     
 
@@ -63,7 +80,7 @@ class Grupa
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-            update smjer set 
+            update grupa set 
                 naziv=:naziv,
                 smjer=:smjer,
                 predavac=:predavac,
