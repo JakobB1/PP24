@@ -1,0 +1,50 @@
+<div class="grid-x">
+    <div class="cell large-6">
+        <h1 style="font-size: 1.5rem;">Grupe</h1>
+    </div>
+    <div class="cell large-6" style="text-align: right;">
+        <a href="<?=App::config('url')?>grupa/novi">
+            <i style="color: green;" title="Dodaj novu grupu" 
+                class="fas fa-2x fa-plus-circle"></i>
+        </a>
+    </div>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Smjer</th>
+            <th>Predavac</th>
+            <th>Datum početka</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($entiteti as $e): ?>
+            <tr>
+                <td><?=$e->naziv?></td>
+                <td><?=$e->smjer?></td>
+                <td><?=$e->predavac?> kn</td>
+                <td><?=$e->datumpocetka?></td>
+                <td>
+                <td>
+                <a href="<?=App::config('url')?>grupa/promjena/<?=$e->sifra?>">
+                    <i title="Promjeni &quot;<?=$smjer->naziv?>&quot;" 
+                        class="fas fa-2x fa-edit"></i>
+                </a>   
+                <?php if($e->polaznika==0): ?>
+                    <a onclick="return confirm('Sigurno obrisati <?=$smjer->naziv?>?');" style="margin-left: 20px;" href="<?=App::config('url')?>smjer/brisanje/<?=$smjer->sifra?>">
+                        <i style="color: red" title="Obriši <?=$e->naziv?>" 
+                            class="fas fa-2x fa-trash"></i>
+                    </a>  
+                <?php else:?>
+                    <i style="margin-left: 20px;color: gray" 
+                    title="Ne može se obrisati <?=$e->naziv?> jer ima polaznike" 
+                            class="fas fa-2x fa-trash"></i>
+                <?php endif;?>
+                 
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
