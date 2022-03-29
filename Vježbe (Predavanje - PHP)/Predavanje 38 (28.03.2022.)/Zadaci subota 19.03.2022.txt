@@ -1,0 +1,28 @@
+Zadatak 1.
+
+U edunovaapp na ruti
+subota2/zadatak1/-57
+
+ispisati sve brojeve od 1 do primljenog parametra (u ovom slučaju 57) jedno pokraj drugog odvojeno zarezom. Na kraju nema zadnjeg zareza.
+
+
+------------------------------------
+
+Zadatak 2.
+ 
+U edunovaapp na ruti
+subota2/zadatak2
+
+omogućiti unos dva broja. Kontrolirati unos da prvi broj mora biti manji od drugog. Poruku o grešci ispisati.
+ 
+
+------------------------------------
+
+Zadatak 3.
+
+U edunovaapp na ruti
+subota2/zadatak3
+
+Ispisati tri liste koristeći ul element jedna pokraj druge. Svaka lista ima slučajno između 10 i 15 elemenata koji su slučajni brojevi između 1000 i 2000
+
+
