@@ -40,20 +40,12 @@ create table users (
     country varchar(50)
 );
 
-create table payments (
-    payment_id int not null primary key auto_increment,
-    users int,
-    payment_type varchar(50),
-    card_number bigint(16),
-    valid boolean
-);
-
 create table orders (
     order_id int not null primary key auto_increment,
     users int,
     games int,
     price int(5),
-    payment_id int,
+    payment varchar(20),
     `date` datetime
 );
 
@@ -73,7 +65,6 @@ alter table wishlists add foreign key (users) references users(user_id);
 alter table orders add foreign key (games) references games(game_id);
 alter table orders add foreign key (users) references users(user_id);
 
-alter table payments add foreign key (users) references users(user_id);
 
 
 
@@ -106,9 +97,9 @@ select * from users;
 
 
 
-insert into orders (order_id,users,games,price,payment_id,`date`) values
-(1, 1, 1, 19.99, 1, '2021-12-01 11:59:00'),
-(2, 2, 2, 5.99, 2, '2020-12-01 11:59:00');
+insert into orders (order_id,users,games,price,payment ,`date`) values
+(1, 1, 1, 19.99, 'Mastercard', '2021-12-01 11:59:00'),
+(2, 2, 2, 5.99, 'Paypal', '2020-12-01 11:59:00');
 
 select * from orders;
 
@@ -119,11 +110,3 @@ insert into wishlists (wish_id,users,games,`date`) values
 (2, 2, 2, '2020-12-01 11:59:00');
 
 select * from wishlists;
-
-
-
-insert into payments (payment_id,users,payment_type,card_number,valid) values
-(1, 1, 'Visa', 4539791458727308, true),
-(2, 1, 'Mastercard', 3729540283127564, false);
-
-select * from payments;
