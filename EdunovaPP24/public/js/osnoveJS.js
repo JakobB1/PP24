@@ -62,3 +62,23 @@ while(true){
         break;
     }
 }
+
+function zbroji(a,b){
+    return a+b;
+}
+
+console.log(zbroji(3,4));
+
+function zbrojiIIspisi(a,b){
+    console.log(a+b);
+}
+
+zbrojiIIspisi(2,9);
+
+document.getElementById('klik').onclick=function(){
+    document.getElementById('primjer').innerHTML='<h1>Hello</h1>';
+};
+
+document.getElementById('klik2').addEventListener('click',function(){
+    document.getElementById('primjer2').innerHTML='<h1>Hello 2</h1>';
+});

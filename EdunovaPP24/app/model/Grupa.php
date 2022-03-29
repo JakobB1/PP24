@@ -3,6 +3,18 @@
 class Grupa
 {
 
+    public static function dodajPolaznik($parametri)
+    {
+        $veza = DB::getInstanca();
+        $izraz = $veza->prepare('
+        
+            insert into clan (grupa,polaznik)
+            values (:grupa,:polaznik);
+        
+        '); 
+        return $izraz->execute($parametri);
+    }
+
     public static function odustajanje($kljuc)
     {
         $veza = DB::getInstanca();

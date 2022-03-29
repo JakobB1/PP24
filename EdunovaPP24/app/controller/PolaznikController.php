@@ -137,12 +137,18 @@ class PolaznikController extends AutorizacijaController
 
 
 
+    public function trazipolaznik($uvjet,$grupa)
+    {
+        header('Content-type: application/json');
+        echo json_encode(Polaznik::traziPolaznik($uvjet,$grupa));
+    }
 
 
 
 
-
-
+// čitati REST API
+// https://restfulapi.net/
+// https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/?fbclid=IwAR2ecGMdxUCT2P7oKvE9CvAREiHR4RWpq_ODq8Dn_54SMwRsFyAUB7H7rWQ
 
 
 

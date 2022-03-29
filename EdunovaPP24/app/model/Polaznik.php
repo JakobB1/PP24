@@ -37,6 +37,29 @@ class Polaznik
         return $izraz->fetch();
     }
 
+    public static function traziPolaznik($uvjet,$grupa)
+    {
+
+
+        $veza = DB::getInstanca();
+        $izraz = $veza->prepare('
+        
+            select a.sifra, b.ime, b.prezime, b.email, b.oib, a.brojugovora
+            from polaznik a 
+            inner join osoba b on a.osoba = b.sifra 
+            left join clan c on a.sifra =c.polaznik 
+            where concat(b.ime, \' \', b.prezime, \' \', ifnull(b.oib,\'\')) like :uvjet
+            and a.sifra not in (select polaznik from clan where grupa=:grupa)
+            order by 3, 2 limit 20
+        
+        '); 
+        $uvjet = '%' . $uvjet . '%';
+        $izraz->bindParam('uvjet',$uvjet);
+        $izraz->bindParam('grupa',$grupa);
+        $izraz->execute();
+        return $izraz->fetchAll();
+    }
+
     // CRUD
 
     //R - Read

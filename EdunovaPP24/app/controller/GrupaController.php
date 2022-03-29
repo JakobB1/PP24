@@ -48,6 +48,7 @@ class GrupaController extends AutorizacijaController
             'predavaci'=>Predavac::read(),
             'css'=>'<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">',
             'javascript'=>'<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+            <script>let grupa=' . $this->entitet->sifra . ';</script>
             <script src="' . App::config('url') . 'public/js/detaljiGrupe.js"></script>'
         ]);
     }
@@ -57,5 +58,13 @@ class GrupaController extends AutorizacijaController
     {
         Grupa::delete($sifra);
         header('location:' . App::config('url').'grupa/index');
+    }
+
+    public function dodajpolaznik($grupa,$polaznik)
+    {
+        echo Grupa::dodajPolaznik([
+            'grupa'=>$grupa,
+            'polaznik'=>$polaznik
+        ]) ? 'OK' : 'Greška';
     }
 }
