@@ -25,3 +25,21 @@ $paths = implode(
 //echo $paths;
 
 set_include_path($paths);
+
+spl_autoload_register(function($class){
+    $paths = explode(PATH_SEPARATOR,get_include_path());
+    foreach($paths as $p){
+        $file = $p . DIRECTORY_SEPARATOR . $class . '.php';
+        if(file_exists($file)){
+            include_once $file;
+            break;
+        }
+    }
+    //echo $class;
+    //echo '<pre>';
+    //print_r($paths);
+    //echo '</pre>';
+});
+
+
+App::start();
