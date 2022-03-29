@@ -4,6 +4,10 @@ class App
 {
     public static function start()
     {
-        echo 'Hello world';
+        //echo '<pre>';
+        //print_r($_SERVER);
+        //echo '</pre>';
+        $route = Request::getRoute();
+        echo $route;
     }
 }
