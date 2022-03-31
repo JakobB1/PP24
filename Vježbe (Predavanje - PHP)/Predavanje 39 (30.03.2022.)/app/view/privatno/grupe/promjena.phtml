@@ -1,0 +1,105 @@
+
+<div class="grid-x grid-padding-x">
+    <div class="cell large-6">
+    <form action="<?=App::config('url')?>smjer/promjeni" method="post">
+
+        <fieldset>
+            <legend>Promjena postojeće grupe</legend>
+
+
+            <label>
+                Naziv
+                <input type="text" name="naziv" value="<?=$e->naziv?>" />
+            </label>
+
+            <label>
+                Smjer
+                <select name="smjer">
+                    <?php foreach($smjerovi as $smjer): ?>
+                        <option 
+                        <?php if($smjer->sifra==$e->smjer){
+                            echo 'selected="selected"';
+                        } ?>
+                        value="<?=$smjer->sifra?>"><?=$smjer->naziv?></option>
+                    <?php endforeach;?>
+                </select>
+            </label>
+
+            <label>
+                Predavač
+                <select name="predavac">
+                    <option value="0">Nije odabrano</option>
+                    <?php foreach($predavaci as $predavac): ?>
+                        <option 
+                        <?php if($predavac->sifra==$e->predavac){
+                            echo 'selected="selected"';
+                        } ?>
+                        value="<?=$predavac->sifra?>"><?php echo $predavac->ime . ' ' . $predavac->prezime; ?></option>
+                    <?php endforeach;?>
+                </select>
+            </label>
+
+            <label>
+                Datum početka
+                <input type="date" name="datumpocetka" value="<?php 
+                if($e->datumpocetka==null){
+                    echo '';
+                }else{
+                    echo date('Y-m-d',strtotime($e->datumpocetka));
+                }
+                ?>" lang="hr-HR">
+                    </label>
+        
+
+            <input type="hidden" name="sifra" value="<?=$e->sifra?>">
+
+            
+            <?=$poruka?>
+
+        </fieldset>
+        </form>
+    </div>
+    <div class="cell large-6">
+    <input type="text" id="uvjet" placeholder="Traži polaznika">
+        <div style="overflow: auto; max-height: 400px; margin-bottom: 20px;">
+
+               
+                <table>
+                <thead>
+                    <tr>
+                        <th>Polaznik</th>
+                        <th>Akcija</th>
+                    </tr>
+                </thead>
+                <tbody id="polaznici">
+                    <?php foreach($e->polaznici as $p): ?>
+                        <tr>
+                            <td><?=$p->ime?> <?=$p->prezime?></td>
+                            <td>
+                            
+                                <a onclick="return confirm('Sigurno obrisati?');"  href="#">
+                                    <i style="color: red" title="Obriši" 
+                                        class="fas fa-2x fa-trash"></i>
+                                </a>  
+                        
+                            
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="grid-x grid-padding-x">
+    <div class="large-4 cell">
+        <a  class="alert button expanded" 
+        href="<?=App::config('url')?>grupa/odustani/<?=$e->sifra?>">Odustani</a>
+    </div>
+    <div class="large-8 cell">
+        <input type="submit" class="success button expanded" value="Promjeni">
+    </div>
+</div>
+
