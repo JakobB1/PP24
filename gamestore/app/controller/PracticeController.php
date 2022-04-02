@@ -17,6 +17,7 @@ class PracticeController
         $row=[
             'Osijek', 'Zagreb', 'Donji Miholjac'
         ];
+        shuffle($row);
 
         $view = new View();
         $view->render('parameters',[
