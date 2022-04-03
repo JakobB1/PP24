@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'url'=>'http://edunovaapp.xyz/'
+    'url'=>'http://zavrsnigamestore.xyz/',
+    'titleApp'=>'Gamestore APP'
 ];
