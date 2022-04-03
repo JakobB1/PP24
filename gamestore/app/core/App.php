@@ -46,4 +46,10 @@ class App
         //$controller->index();
 
     }
+
+    public static function config($key)
+    {
+        $config = include BP_APP . 'configuration.php';
+        return $config[$key];
+    }
 }
