@@ -77,7 +77,7 @@ alter table orders add foreign key (users) references users(user_id);
 
 
 # operator
-insert into operater(email,lozinka,ime,prezime, uloga) values
+insert into operator(email,password,name,surname, role) values
 # password a
 ('admin@edunova.hr','$2a$12$gcFbIND0389tUVhTMGkZYem.9rsMa733t9J9e9bZcVvZiG3PEvSla','Administrator','Edunova','admin'),
 # password o
