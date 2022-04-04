@@ -23,6 +23,17 @@ class LoginController extends Controller
             $this->loginView('Password required',$_POST['email']);
             return;
         }
+
+        // I am 100% sure that the user entered the email and password
+        $operator = Operator::authorize($_POST['email'],$_POST['password']);
+        if($operator==null){
+            $this->loginView('Invalid email and password combination',$_POST['email']);
+            return;
+        }
+
+        $_SESSION['authorized']=$operator;
+         $dash = new DashboardController();
+         $dash->index();
     }
 
 
