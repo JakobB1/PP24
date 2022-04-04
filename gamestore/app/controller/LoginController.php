@@ -25,12 +25,6 @@ class LoginController extends Controller
         }
     }
 
-    public function odjava()
-    {
-        unset($_SESSION['autoriziran']);
-        session_destroy();
-        $this->loginView('Uspješno ste odjavljeni','');
-    }
 
     private function loginView($message,$email)
     {
