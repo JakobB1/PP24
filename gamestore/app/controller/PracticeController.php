@@ -11,9 +11,9 @@ class PracticeController
     {
         $sb = rand(2,9);
         $name = 'Edunova';
-        $o = new stdClass();
-        $o->name='Pero';
-        $o->surname='Perić';
+        $g = new stdClass();
+        $g->name='Pero';
+        $g->surname='Perić';
         $row=[
             'Osijek', 'Zagreb', 'Donji Miholjac'
         ];
@@ -23,8 +23,17 @@ class PracticeController
         $view->render('parameters',[
             'randomNumber'=>$sb,
             'school'=>$name,
-            'guide'=>$o,
+            'guide'=>$g,
             'cities'=>$row
         ]);
     }
+
+    public function testbase()
+    {
+        $connection = DB::getInstance();
+        $expression = $connection->prepare('select * from publishers');
+        $expression->execute();
+        print_r($expression->fetchAll());
+    }
+
 }
