@@ -1,5 +1,5 @@
 drop database if exists gamestore;
-create database gamestore;
+create database gamestore character set utf8mb4;
 use gamestore;
 
 
@@ -76,7 +76,12 @@ alter table orders add foreign key (games) references games(game_id);
 alter table orders add foreign key (users) references users(user_id);
 
 
-
+# operator
+insert into operater(email,lozinka,ime,prezime, uloga) values
+# password a
+('admin@edunova.hr','$2a$12$gcFbIND0389tUVhTMGkZYem.9rsMa733t9J9e9bZcVvZiG3PEvSla','Administrator','Edunova','admin'),
+# password o
+('oper@edunova.hr','$2a$12$S6vnHiwtRDdoUW4zgxApvezBlodWj/tmTADdmKxrX28Y2FXHcoHOm','Operater','Edunova','oper');
 
 
 insert into developers (developer_id,name,website) values 
@@ -120,3 +125,4 @@ insert into wishlists (wish_id,users,games,`date`) values
 (2, 2, 2, '2020-12-01 11:59:00');
 
 select * from wishlists;
+
