@@ -2,6 +2,16 @@ drop database if exists gamestore;
 create database gamestore;
 use gamestore;
 
+
+create table operator(
+    id              int not null primary key auto_increment,
+    email           varchar(50) not null,
+    password        char(60) not null, 
+    name            varchar(50) not null,
+    surname         varchar(50) not null,
+    role            varchar(10) not null
+);
+
 create table developers (
     developer_id int not null primary key auto_increment,
     name varchar(50),
