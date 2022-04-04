@@ -7,6 +7,30 @@ class LoginController extends Controller
         $this->loginView('Fill in the Email and Password','');
     }
 
+    public function authorize()
+    {
+        if(!isset($_POST['email']) || !isset($_POST['password'])){
+            $this->index();
+            return; //short curcuiting
+        }
+
+        if(strlen(trim($_POST['email']))===0){
+           $this->loginView('Email required','');
+           return;
+        }
+
+        if(strlen(trim($_POST['password']))===0){
+            $this->loginView('Password required',$_POST['email']);
+            return;
+        }
+    }
+
+    public function odjava()
+    {
+        unset($_SESSION['autoriziran']);
+        session_destroy();
+        $this->loginView('Uspješno ste odjavljeni','');
+    }
 
     private function loginView($message,$email)
     {
