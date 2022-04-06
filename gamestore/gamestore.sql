@@ -1,7 +1,8 @@
-drop database if exists gamestore;
-create database gamestore character set utf8mb4;
-use gamestore;
+drop database if exists cerera_edunovapp20;
+create database cerera_edunovapp20 character set utf8mb4;
+use cerera_edunovapp20;
 
+alter database cerera_edunovapp20 character set utf8mb4;
 
 create table operator(
     id              int not null primary key auto_increment,
