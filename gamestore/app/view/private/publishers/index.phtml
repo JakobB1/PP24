@@ -1,1 +1,21 @@
-Publishers
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Website</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($publishers as $publishers): ?>
+            <tr>
+                <td><?=$publishers->name?></td>
+                <td><?=$publishers->country?></td>
+                <td><?=$publishers->website?></td>
+                <td></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

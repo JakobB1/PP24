@@ -9,6 +9,8 @@ class PublishersController extends AuthorizationController
 
     public function index()
     {
-        $this->view->render($this->viewDir . 'index');
+        $this->view->render($this->viewDir . 'index',[
+            'publishers' => Publishers::read()
+        ]);
     }
 }
