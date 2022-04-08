@@ -9,6 +9,8 @@ class DevelopersController extends AuthorizationController
 
     public function index()
     {
-        $this->view->render($this->viewDir . 'index');
+        $this->view->render($this->viewDir . 'index',[
+            'developers' => Developers::read()
+        ]);
     }
 }
