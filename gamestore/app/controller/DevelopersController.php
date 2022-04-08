@@ -17,9 +17,21 @@ class DevelopersController extends AuthorizationController
         ]);
     }
 
+
+    public function new()
+    {
+        $this->view->render($this->viewDir . 'new');
+    }
+
+    public function addNew()
+    {
+        Developers::create($_POST);
+        $this->index();
+    }
+
     public function delete($id)
     {
         Developers::delete($id);
-        header('location:' . App::config('url').'developers/index');
+        $this->index();
     }
 }

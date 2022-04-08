@@ -24,22 +24,18 @@
                 <td><?= $developers->country ?></td>
                 <td><?= $developers->website ?></td>
                 <td>
-                <a href="<?=App::config('url')?>developers/change?id=<?$developers->id?>">
-                    <i title="Change &quot;<?=$developers->name?>&quot;"
-                         class="fas fa-2x fa-edit"></i>
-                </a> 
-                <?php if($developers->games===0): ?>
-                    <a onclick="return confirm('Are you sure you want to delete <?=$developers->name?>?');" style="margin-left: 20px;" href="<?=App::config('url')?>developers/delet
+                    <a href="<?= App::config('url') ?>developers/change?id=<? $developers->id ?>">
+                        <i title="Change &quot;<?= $developers->name ?>&quot;" class="fas fa-2x fa-edit"></i>
+                    </a>
+                    <?php if ($developers->games === 0) : ?>
+                        <a onclick="return confirm('Are you sure you want to delete <?= $developers->name ?>?');" style="margin-left: 20px;" href="<?= App::config('url') ?>developers/delete
                     0?>">
-                         <i style="color: red" title="Delete <?=$developers->name?>"
-                         class="fas fa-2x fa-trash"></i>
-                </a> 
-                <?php else:?>
-                    <i style="margin-left: 20px;color: gray" 
-                    title="Cannot delete  <?=$developers->name?> because there are games" 
-                            class="fas fa-2x fa-trash"></i>
-                <?php endif;?>
-                
+                            <i style="color: red" title="Delete <?= $developers->name ?>" class="fas fa-2x fa-trash"></i>
+                        </a>
+                    <?php else : ?>
+                        <i style="margin-left: 20px;color: gray" title="Cannot delete  <?= $developers->name ?> because there are games" class="fas fa-2x fa-trash"></i>
+                    <?php endif; ?>
+
                 </td>
             </tr>
         <?php endforeach; ?>
