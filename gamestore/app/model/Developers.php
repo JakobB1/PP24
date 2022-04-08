@@ -26,4 +26,15 @@ class Developers
     //U - Update
 
     //D - Delete
+    public static function delete($id)
+    {
+        $connection = DB::getInstance();
+        $expression = $connection->prepare('
+        
+            delete from developers where id=:id;
+        
+        '); 
+        $expression->execute(['id'=>$id]);
+
+    }
 }

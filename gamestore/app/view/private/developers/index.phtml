@@ -29,7 +29,8 @@
                          class="fas fa-2x fa-edit"></i>
                 </a> 
                 <?php if($developers->games===0): ?>
-                        <a style="margin-left: 20px;" href="<?=App::config('url')?>developers/delete?id=<?$developers->id?>">
+                    <a onclick="return confirm('Are you sure you want to delete <?=$developers->name?>?');" style="margin-left: 20px;" href="<?=App::config('url')?>developers/delet
+                    0?>">
                          <i style="color: red" title="Delete <?=$developers->name?>"
                          class="fas fa-2x fa-trash"></i>
                 </a> 
