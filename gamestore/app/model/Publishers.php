@@ -7,10 +7,14 @@ class Publishers
     //R - Read
     public static function read()
     {
-        $connection=DB::getInstance();
+        $connection = DB::getInstance();
         $expression = $connection->prepare('
 
-            select * from publishers;
+            select a.publisher_id , a.name , a.country , a.website,
+            count(b.game_id) as games
+            from publishers a left join games b 
+            on a.publisher_id = b.game_id 
+            group by a.publisher_id , a.name , a.country , a.website;
         
         ');
         $expression->execute();
