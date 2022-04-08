@@ -16,6 +16,7 @@ create table operator(
 create table developers (
     developer_id int not null primary key auto_increment,
     name varchar(50),
+    country varchar(50),
     website varchar(50)
 );
 
