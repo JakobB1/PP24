@@ -19,6 +19,7 @@
             <th>Age</th>
             <th>Email</th>
             <th>Country</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -33,8 +34,16 @@
                 <td><?= $users->email ?></td>
                 <td><?= $users->country ?></td>
                 <td>
-                    
-
+                    <a href="<?= App::config('url') ?>users/change?id=<? $users->id ?>">
+                        <i title="Change &quot;<?= $users->name ?>&quot;" class="fas fa-2x fa-edit"></i>
+                    </a>
+                    <?php if ($users->wishlists === 0) : ?>
+                        <a onclick="return confirm('Are you sure you want to delete <?= $users->name ?>?');" style="margin-left: 20px;" href="<?= App::config('url') ?>users/delete/<?=$users->id?>">
+                            <i style="color: red" title="Delete <?= $users->name ?>" class="fas fa-2x fa-trash"></i>
+                        </a>
+                    <?php else : ?>
+                        <i style="margin-left: 20px;color: gray" title="Cannot delete  <?= $users->name ?> because there are games" class="fas fa-2x fa-trash"></i>
+                    <?php endif; ?>
 
                 </td>
             </tr>
