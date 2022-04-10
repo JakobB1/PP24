@@ -3,6 +3,19 @@
 class Developers
 {
     // CRUD
+    public static function readOne($key)
+    {
+        $connection = DB::getInstance();
+        $expression = $connection->prepare('
+        
+            select * from developers where id=:parameter;
+        
+        '); 
+        $expression->execute(['parameter'=>$key]);
+        return $expression->fetch();
+    }
+
+
 
     //R - Read
     public static function read()
@@ -21,6 +34,8 @@ class Developers
         return $expression->fetchAll();
     }
 
+
+
     //C - Create
     public static function create($parameters)
     {
@@ -35,7 +50,25 @@ class Developers
         
     }
 
+
+
     //U - Update
+    public static function update($parameters)
+    {
+        $connection = DB::getInstance();
+        $expression = $connection->prepare('
+        
+            update developers set 
+                name=:name,
+                country=:country,
+                website=:website
+                where id=:id;
+                
+        '); 
+        $expression->execute($parameters);
+        
+    }
+
 
     //D - Delete
     public static function delete($id)

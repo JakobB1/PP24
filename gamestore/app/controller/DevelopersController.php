@@ -9,6 +9,8 @@ class DevelopersController extends AuthorizationController
     private $message;
     private $developers;
 
+
+
     public function __construct()
     {
         parent::__construct();
@@ -17,6 +19,9 @@ class DevelopersController extends AuthorizationController
         $this->developers->country='';
         $this->developers->website='';
     }
+
+
+
 
     public function index()
     {
@@ -29,6 +34,7 @@ class DevelopersController extends AuthorizationController
     }
 
 
+
     public function new()
     {
         $this->view->render($this->viewDir . 'new',[
@@ -39,14 +45,26 @@ class DevelopersController extends AuthorizationController
 
 
 
+    public function change($id)
+    {
+        $this->developers = Developers::readOne($id);
+
+        $this->view->render($this->viewDir . 'change',[
+            'messsage'=>'Change the Data',
+            'developers'=>$this->developers
+        ]);
+    }
+
+
+
     public function addNew()
     {
-        $this->developers=(object)$_POST;
+        $this->prepareData();
 
         if($this->controlName()
         && $this->controlCountry()
         && $this->controlWebsite()){
-            Developers::create($_POST);
+            Developers::create((array)$this->developers);
             $this->index();
         }else{
             $this->view->render($this->viewDir.'new',[
@@ -54,6 +72,44 @@ class DevelopersController extends AuthorizationController
                 'developers'=>$this->developers
             ]);
         }
+    }
+
+
+
+    public function changing()
+    {
+        $this->prepareData();
+        
+        if($this->controlName()
+        && $this->controlCountry()
+        && $this->controlWebsite()){
+            Developers::update((array)$this->developers);
+            header('location:' . App::config('url').'developers/index');
+        }else{
+            $this->view->render($this->viewDir.'change',[
+                'message'=>$this->message,
+                'developers'=>$this->developers
+            ]);
+        }
+    }
+
+
+
+
+    public function delete($id)
+    {
+        Developers::delete($id);
+        header('location:' . App::config('url').'developers/index');
+    }
+
+
+
+
+
+
+    private function prepareData()
+    {
+        $this->developers=(object)$_POST;
     }
 
 
@@ -72,6 +128,8 @@ class DevelopersController extends AuthorizationController
         return true;
     }
 
+
+
     private function controlCountry()
     {
         if(strlen($this->developers->country)===0){
@@ -86,6 +144,8 @@ class DevelopersController extends AuthorizationController
         return true;
     }
 
+
+    
     private function controlWebsite()
     {
         if(strlen($this->developers->website)===0){
@@ -98,12 +158,5 @@ class DevelopersController extends AuthorizationController
         }
 
         return true;
-    }
-
-
-    public function delete($id)
-    {
-        Developers::delete($id);
-        $this->index();
     }
 }
