@@ -1,8 +1,19 @@
 <?php
 
-class Template
+class Users
 {
     // CRUD
+    public static function readOne($key)
+    {
+        $connection = DB::getInstance();
+        $expression = $connection->prepare('
+        
+            select * from users where id=:parameter;
+        
+        '); 
+        $expression->execute(['parameter'=>$key]);
+        return $expression->fetch();
+    }
 
 
 

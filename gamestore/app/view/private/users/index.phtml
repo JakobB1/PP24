@@ -1,1 +1,43 @@
-Users
+<div class="grid-x">
+    <div class="cell large-6">
+        <h1 style="font-size: 1.5rem;">Users</h1>
+    </div>
+    <div class="cell large-6" style="text-align: right">
+        <a href="<?= App::config('url') ?>users/new">
+            <i style="color:green;" title="Add new" class="fas fa-2x fa-plus-circle"></i>
+        </a>
+    </div>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($users as $users) : ?>
+            <tr>
+                <td><?= $users->name ?></td>
+                <td><?= $users->surname ?></td>
+                <td><?= $users->username ?></td>
+                <td><?= $users->password ?></td>
+                <td><?= $users->gender ?></td>
+                <td><?= $users->age ?></td>
+                <td><?= $users->email ?></td>
+                <td><?= $users->country ?></td>
+                <td>
+                    
+
+
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
