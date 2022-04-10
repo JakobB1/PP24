@@ -3,6 +3,19 @@
 class Publishers
 {
     // CRUD
+    public static function readOne($key)
+    {
+        $connection = DB::getInstance();
+        $expression = $connection->prepare('
+        
+            select * from publishers where id=:parameter;
+        
+        '); 
+        $expression->execute(['parameter'=>$key]);
+        return $expression->fetch();
+    }
+
+
 
     //R - Read
     public static function read()
@@ -13,13 +26,15 @@ class Publishers
             select a.id , a.name , a.country , a.website,
             count(b.id) as games
             from publishers a left join games b 
-            on a.id = b.id 
-            group by a.id , a.name , a.country , a.website;
+            on a.id  = b.id 
+            group by a.id  , a.name , a.country , a.website;
         
         ');
         $expression->execute();
         return $expression->fetchAll();
     }
+
+
 
     //C - Create
     public static function create($parameters)
@@ -35,7 +50,25 @@ class Publishers
         
     }
 
+
+
     //U - Update
+    public static function update($parameters)
+    {
+        $connection = DB::getInstance();
+        $expression = $connection->prepare('
+        
+            update publishers set 
+                name=:name,
+                country=:country,
+                website=:website
+                where id=:id;
+                
+        '); 
+        $expression->execute($parameters);
+        
+    }
+
 
     //D - Delete
     public static function delete($id)

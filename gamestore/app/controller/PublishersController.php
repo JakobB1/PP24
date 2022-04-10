@@ -8,7 +8,9 @@ class PublishersController extends AuthorizationController
         'publishers' . DIRECTORY_SEPARATOR;
     private $message;
     private $publishers;
-    
+
+
+
     public function __construct()
     {
         parent::__construct();
@@ -18,15 +20,19 @@ class PublishersController extends AuthorizationController
         $this->publishers->website='';
     }
 
+
+
+
     public function index()
     {
         $publishers = Publishers::read();
 
         $this->view->render($this->viewDir . 'index', [
             'publishers' => $publishers,
-            'css' => '<link rel="stylesheet" href="' . App::config('url') . 'public/css/publishersindex.css">'
+            'css' => '<link rel="stylesheet" href="' . App::config('url') . 'public/css/developersindex.css">'
         ]);
     }
+
 
 
     public function new()
@@ -39,14 +45,26 @@ class PublishersController extends AuthorizationController
 
 
 
+    public function change($id)
+    {
+        $this->publishers = Publishers::readOne($id);
+
+        $this->view->render($this->viewDir . 'change',[
+            'messsage'=>'Change the Data',
+            'publishers'=>$this->publishers
+        ]);
+    }
+
+
+
     public function addNew()
     {
-        $this->publishers=(object)$_POST;
+        $this->prepareData();
 
         if($this->controlName()
         && $this->controlCountry()
         && $this->controlWebsite()){
-            Publishers::create($_POST);
+            Publishers::create((array)$this->publishers);
             $this->index();
         }else{
             $this->view->render($this->viewDir.'new',[
@@ -54,6 +72,44 @@ class PublishersController extends AuthorizationController
                 'publishers'=>$this->publishers
             ]);
         }
+    }
+
+
+
+    public function changing()
+    {
+        $this->prepareData();
+        
+        if($this->controlName()
+        && $this->controlCountry()
+        && $this->controlWebsite()){
+            Publishers::update((array)$this->publishers);
+            header('location:' . App::config('url').'publishers/index');
+        }else{
+            $this->view->render($this->viewDir.'change',[
+                'message'=>$this->message,
+                'publishers'=>$this->publishers
+            ]);
+        }
+    }
+
+
+
+
+    public function delete($id)
+    {
+        Publishers::delete($id);
+        header('location:' . App::config('url').'publishers/index');
+    }
+
+
+
+
+
+
+    private function prepareData()
+    {
+        $this->publishers=(object)$_POST;
     }
 
 
@@ -72,6 +128,8 @@ class PublishersController extends AuthorizationController
         return true;
     }
 
+
+
     private function controlCountry()
     {
         if(strlen($this->publishers->country)===0){
@@ -86,6 +144,8 @@ class PublishersController extends AuthorizationController
         return true;
     }
 
+
+    
     private function controlWebsite()
     {
         if(strlen($this->publishers->website)===0){
@@ -98,12 +158,5 @@ class PublishersController extends AuthorizationController
         }
 
         return true;
-    }
-
-
-    public function delete($id)
-    {
-        Developers::delete($id);
-        $this->index();
     }
 }
