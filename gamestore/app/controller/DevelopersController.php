@@ -6,6 +6,17 @@ class DevelopersController extends AuthorizationController
     private $viewDir =
     'private' . DIRECTORY_SEPARATOR .
         'developers' . DIRECTORY_SEPARATOR;
+    private $message;
+    private $developers;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->developers = new stdClass();
+        $this->developers->name='';
+        $this->developers->country='';
+        $this->developers->website='';
+    }
 
     public function index()
     {
@@ -20,14 +31,75 @@ class DevelopersController extends AuthorizationController
 
     public function new()
     {
-        $this->view->render($this->viewDir . 'new');
+        $this->view->render($this->viewDir . 'new',[
+            'messsage'=>'',
+            'developers'=>$this->developers
+        ]);
     }
+
+
 
     public function addNew()
     {
-        Developers::create($_POST);
-        $this->index();
+        $this->developers=(object)$_POST;
+
+        if($this->controlName()
+        && $this->controlCountry()
+        && $this->controlWebsite()){
+            Developers::create($_POST);
+            $this->index();
+        }else{
+            $this->view->render($this->viewDir.'new',[
+                'message'=>$this->message,
+                'developers'=>$this->developers
+            ]);
+        }
     }
+
+
+
+    private function controlName()
+    {
+        if(strlen($this->developers->name)===0){
+            $this->message='Name Required';
+            return false;
+        }
+        if(strlen($this->developers->name)>50){
+            $this->message='Name cannot be longer than 50 characters';
+            return false;
+        }
+
+        return true;
+    }
+
+    private function controlCountry()
+    {
+        if(strlen($this->developers->country)===0){
+            $this->message='Country Required';
+            return false;
+        }
+        if(strlen($this->developers->country)>50){
+            $this->message='Country cannot be longer than 50 characters';
+            return false;
+        }
+
+        return true;
+    }
+
+    private function controlWebsite()
+    {
+        if(strlen($this->developers->website)===0){
+            $this->message='Website Required';
+            return false;
+        }
+        if(strlen($this->developers->website)>50){
+            $this->message='Website cannot be longer than 50 characters';
+            return false;
+        }
+
+        return true;
+    }
+
 
     public function delete($id)
     {
