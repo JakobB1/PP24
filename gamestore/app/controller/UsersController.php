@@ -30,11 +30,8 @@ class UsersController extends AuthorizationController
 
     public function index()
     {
-        $users = Users::read();
-
         $this->view->render($this->viewDir . 'index', [
-            'users' => $users,
-            'css' => '<link rel="stylesheet" href="' . App::config('url') . 'public/css/developersindex.css">'
+            'users' => Users::read()
         ]);
     }
 
