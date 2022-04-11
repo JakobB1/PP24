@@ -74,7 +74,7 @@ insert into operater (email,lozinka ,ime ,prezime , uloga) values
 ('admin@edunova.hr','$2a$12$gcFbIND0389tUVhTMGkZYem.9rsMa733t9J9e9bZcVvZiG3PEvSla','Administrator','Edunova','admin'),
 # password o
 ('oper@edunova.hr','$2a$12$S6vnHiwtRDdoUW4zgxApvezBlodWj/tmTADdmKxrX28Y2FXHcoHOm','Operater','Edunova','oper');
-
+select * from operater;
 
 insert into razvijac (sifra,naziv,drzava, webstranica) values 
 (1, 'FromSoftware Inc.','Japan', 'https://www.fromsoftware.jp/ww/'),
