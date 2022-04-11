@@ -24,6 +24,6 @@ return [
     'dev'=>$dev,
     'url'=>$url,
     'rps'=>10, // rezultata po stranici
-    'naslovApp'=>'Edunova APP',
+    'naslovApp'=>'Gamestore APP',
     'baza'=>$baza
 ];
