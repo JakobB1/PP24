@@ -25,10 +25,11 @@
       <?php if(App::autoriziran()):?>
         <li><a href="#">Programi</a>
           <ul class="submenu menu vertical" data-submenu>
-            <li><a href="<?=App::config('url')?>smjer/index">Smjerovi</a></li>
-            <li><a href="<?=App::config('url')?>polaznik/index">Polaznici</a></li>
-            <li><a href="<?=App::config('url')?>predavac/index">Predavači</a></li>
-            <li><a href="<?=App::config('url')?>grupa/index">Grupe</a></li>
+            <li><a href="<?=App::config('url')?>izdavac/index">Izdavaci</a></li>
+            <li><a href="<?=App::config('url')?>razvijac/index">Razvijaci</a></li>
+            <li><a href="<?=App::config('url')?>igra/index">Igre</a></li>
+            <li><a href="<?=App::config('url')?>korisnik/index">Korisnik</a></li>
+            <li><a href="<?=App::config('url')?>narudzba/index">Narudzbe</a></li>
             <?php if(App::admin()):?>
               <li><a href="<?=App::config('url')?>operater/index">Operateri</a></li>
             <?php endif;?>
