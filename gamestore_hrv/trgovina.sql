@@ -52,19 +52,26 @@ create table korisnik (
 create table narudzba (
     sifra       int not null primary key auto_increment,
     korisnik_id int,
-    igra_id     int,
     cijena      int(5),
     placanje    varchar(20),
     datum datetime
 );
 
+create table narudzba_igra (
+    sifra       int not null primary key auto_increment,
+    igra_id int,
+    narudzba_id int
+);
+
+alter table narudzba_igra  add foreign key (igra_id) references igra(sifra);
+alter table narudzba_igra  add foreign key (narudzba_id) references narudzba(sifra);
 
 alter table igra  add foreign key (razvijac_id) references razvijac(sifra);
 alter table igra  add foreign key (izdavac_id) references izdavac(sifra);
 
 
 
-alter table narudzba  add foreign key (igra_id) references igra(sifra);
+
 alter table narudzba  add foreign key (korisnik_id) references korisnik(sifra);
 
 
@@ -104,8 +111,8 @@ select * from korisnik;
 
 
 
-insert into narudzba  (sifra,korisnik_id ,igra_id ,cijena,placanje ,datum) values
-(1, 1, 1, 19.99, 'Mastercard', '2021-12-01 11:59:00'),
-(2, 2, 2, 5.99, 'Paypal', '2020-12-01 11:59:00');
+insert into narudzba  (sifra,korisnik_id ,cijena,placanje ,datum) values
+(1, 1, 19.99, 'Mastercard', '2021-12-01 11:59:00'),
+(2, 2, 5.99, 'Paypal', '2020-12-01 11:59:00');
 
 select * from narudzba;
