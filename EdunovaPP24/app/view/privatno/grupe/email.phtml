@@ -1,0 +1,26 @@
+<form action="<?=App::config('url')?>grupa/posaljiemail" method="post">
+
+<label for="naslov">Naslov</label>
+<input type="text" name="naslov" id="naslov">
+
+<label for="poruka">Poruka</label>
+<textarea name="poruka" id="poruka"></textarea>
+
+<label for="vrsta">Vrsta slanja</label>
+<select name="versta" id="vrsta">
+    <option value="mail">PHP mail funkcija (hosting server konfiguracija)</option>
+    <option value="gmail">Putem gmail API</option>
+</select>
+
+<input type="hidden" name="sifra" value="<?=$e->sifra ?>">
+
+<div class="grid-x grid-padding-x">
+    <div class="large-4 cell">
+        <a  class="alert button expanded" 
+        href="<?=App::config('url')?>grupa/promjena/<?=$e->sifra?>">Odustani</a>
+    </div>
+    <div class="large-8 cell">
+        <input type="submit" class="success button expanded" value="Pošalji">
+    </div>
+</div>
+</form>

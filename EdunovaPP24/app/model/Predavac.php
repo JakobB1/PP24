@@ -3,6 +3,26 @@
 class Predavac
 {
 
+    public static function traziPredavac($uvjet)
+    {
+
+
+        $veza = DB::getInstanca();
+        $izraz = $veza->prepare('
+        
+                select a.sifra, b.ime, b.prezime
+                from predavac a 
+                inner join osoba b on a.osoba = b.sifra 
+                where concat(b.ime, \' \', b.prezime) like :uvjet
+                order by 3, 2 
+        
+        '); 
+        $uvjet = '%' . $uvjet . '%';
+        $izraz->bindParam('uvjet',$uvjet);
+        $izraz->execute();
+        return $izraz->fetchAll();
+    }
+
 
     public static function readOne($kljuc)
     {
@@ -73,8 +93,9 @@ class Predavac
             'osoba'=>$zadnjaSifra,
             'iban'=>$parametri['iban']
         ]);
-
-        $veza->commit();        
+        $sifraPredavac = $veza->lastInsertId();
+        $veza->commit();   
+        return $sifraPredavac;     
     }
     
 

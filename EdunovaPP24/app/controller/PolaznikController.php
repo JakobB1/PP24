@@ -49,12 +49,16 @@ class PolaznikController extends AutorizacijaController
         }
 
 
+      
 
        $this->view->render($this->viewDir . 'index',[
-           'polaznici'=>polaznik::read($stranica, $uvjet),
+           'polaznici'=>$this->postaviSlike(Polaznik::read($stranica, $uvjet)),
            'uvjet'=>$uvjet,
            'stranica' => $stranica,
-           'ukupnoStranica'=>$ukupnoStranica
+           'ukupnoStranica'=>$ukupnoStranica,
+           'css'=>'<link rel="stylesheet" href="' . App::config('url') . 'public/css/cropper.css">',
+           'javascript'=>'<script src="' . App::config('url') . 'public/js/vendor/cropper.js"></script>
+           <script src="' . App::config('url') . 'public/js/indexPolaznik.js"></script>'
        ]);
     }   
 
@@ -81,7 +85,7 @@ class PolaznikController extends AutorizacijaController
         if($_POST['sifra']==0){
             //prvo kontrole 
             if($this->kontrolaOIB($_POST['oib'])){
-                polaznik::create($_POST);
+                Polaznik::create($_POST);
             }else{
                 $this->view->render($this->viewDir . 'detalji',[
                     'polaznik'=>(object)$_POST,
@@ -140,7 +144,38 @@ class PolaznikController extends AutorizacijaController
     public function trazipolaznik($uvjet,$grupa)
     {
         header('Content-type: application/json');
-        echo json_encode(Polaznik::traziPolaznik($uvjet,$grupa));
+        echo json_encode($this->postaviSlike(Polaznik::traziPolaznik($uvjet,$grupa)));
+    }
+
+
+
+    public function spremisliku(){
+
+        $slika = $_POST['slika'];
+        $slika=str_replace('data:image/png;base64,','',$slika);
+        $slika=str_replace(' ','+',$slika);
+        $data=base64_decode($slika);
+
+        file_put_contents(BP . 'public' . DIRECTORY_SEPARATOR
+        . 'img' . DIRECTORY_SEPARATOR . 
+        'polaznici' . DIRECTORY_SEPARATOR 
+        . $_POST['id'] . '.png', $data);
+
+        echo "OK";
+    }
+
+
+    private function postaviSlike($polaznici)
+    {
+        foreach($polaznici as $p){
+            if(file_exists(BP . 'public' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR
+            . 'polaznici' . DIRECTORY_SEPARATOR . $p->sifra . '.png' )){
+                $p->slika= App::config('url') . 'public/img/polaznici/' . $p->sifra . '.png';
+            }else{
+                $p->slika= App::config('url') . 'public/img/nepoznato.png';
+            }
+        }
+        return $polaznici;
     }
 
 
@@ -156,12 +191,14 @@ class PolaznikController extends AutorizacijaController
 
 
     public function test($sto){
+        // use the factory to create a Faker\Generator instance
+        $faker = Faker\Factory::create('hr_HR');
         switch ($sto) {
             case 'dodaj3000':
                 for($i=0;$i<3000;$i++){
                     Polaznik::create([
-                        'ime'=>'Pero',
-                        'prezime'=>'Pero',
+                        'ime'=>$faker->firstName(),
+                        'prezime'=>$faker->lastName(),
                         'oib'=>'Pero',
                         'brojugovora'=>'Pero',
                         'email'=>'Pero'

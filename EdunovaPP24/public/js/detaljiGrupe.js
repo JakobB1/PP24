@@ -16,7 +16,7 @@
         }
     }).autocomplete( 'instance' )._renderItem = function( ul, item ) {
         return $( '<li>' )
-          .append( '<div>' + item.sifra + ' ' + item.ime + ' ' + item.prezime + '</div>')
+          .append( '<div><img src="' + item.slika + '" style="max-width: 30px;" > ' + item.ime + ' ' + item.prezime + '</div>')
           .appendTo( ul );
       };
 
@@ -133,3 +133,13 @@
   });
 
   /* Završio predavač */
+
+
+
+  /* CKEDIT */
+  CKEDITOR.replace('poruka', {
+    height: 400,
+    baseFloatZIndex: 10005,
+    removeButtons: 'PasteFromWord'
+  });
+  /* završio CKEDIT */

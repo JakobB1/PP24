@@ -43,7 +43,20 @@
                     title="Ne može se obrisati <?=$e->naziv?> jer ima polaznike" 
                             class="fas fa-2x fa-trash"></i>
                 <?php endif;?>
-                 
+                <a target="_blank" style="margin-left: 20px;" 
+                    href="<?=App::config('url')?>grupa/pdf/<?=$e->sifra?>">
+                            <i class="fas fa-2x fa-file-pdf"></i>
+                </a>
+                <a target="_blank" style="margin-left: 20px;" 
+                    href="<?=App::config('url')?>grupa/excel/<?=$e->sifra?>">
+                            <i class="fas fa-2x fa-file-excel"></i>
+                </a>
+
+                <a target="_blank" style="margin-left: 20px;" 
+                    href="<?=App::config('url')?>grupa/saljiemail/<?=$e->sifra?>">
+                            <i class="fas fa-2x fa-envelope"></i>
+                </a>
+
                 </td>
             </tr>
         <?php endforeach; ?>

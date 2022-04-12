@@ -1,4 +1,5 @@
-<form action="<?=App::config('url')?>predavac/akcija" method="post">
+<form action="<?=App::config('url')?>predavac/akcija" method="post"
+enctype="multipart/form-data">
 
     <fieldset>
         <legend>Detalji predavača</legend>
@@ -21,6 +22,9 @@
 
         <label for="iban">IBAN</label>
         <input type="text" name="iban" id="iban" value="<?=$predavac->iban?>">
+
+        <label for="slika">Slika</label>
+        <input type="file" name="slika" id="slika">
 
         <input type="hidden" name="sifra" value="<?=$predavac->sifra?>">
 

@@ -3,6 +3,24 @@
 class Grupa
 {
 
+
+    public static function brojPolaznikaNaGrupi()
+    {
+        $veza = DB::getInstanca();
+        $izraz = $veza->prepare('
+        
+        select a.naziv as name, count(b.polaznik) as y
+        from grupa a left join clan b 
+        on a.sifra=b.grupa
+        group by a.naziv
+        order by 2 desc;
+        
+        
+        '); 
+        $izraz->execute();
+        return $izraz->fetchAll();
+    }
+
     public static function dodajPolaznik($parametri)
     {
         $veza = DB::getInstanca();
@@ -10,6 +28,17 @@ class Grupa
         
             insert into clan (grupa,polaznik)
             values (:grupa,:polaznik);
+        
+        '); 
+        return $izraz->execute($parametri);
+    }
+
+    public static function brisiPolaznik($parametri)
+    {
+        $veza = DB::getInstanca();
+        $izraz = $veza->prepare('
+        
+            delete from clan where grupa=:grupa and polaznik=:polaznik;
         
         '); 
         return $izraz->execute($parametri);
@@ -45,7 +74,7 @@ class Grupa
         $grupa= $izraz->fetch();
         $izraz = $veza->prepare('
         
-            select b.sifra, c.ime, c.prezime
+            select b.sifra, c.ime, c.prezime, c.email
             from clan a
             inner join polaznik b on a.polaznik =b.sifra 
             inner join osoba c on b.osoba =c.sifra 
@@ -90,7 +119,7 @@ class Grupa
         $izraz = $veza->prepare('
         
             insert into grupa (naziv,smjer,predavac,datumpocetka)
-            values (:naziv,:smjer,:predavac,:datumpocetka);
+            values (:naziv,:smjer,null,:datumpocetka);
         
         '); 
         $izraz->execute($parametri);

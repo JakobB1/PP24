@@ -32,7 +32,10 @@ class SmjerController extends AutorizacijaController
 
        $this->view->render($this->viewDir . 'index',[
            'smjerovi' => $smjerovi,
-           'css'=>'<link rel="stylesheet" href="' . App::config('url') . 'public/css/smjerindex.css">'
+           'css'=>'<link rel="stylesheet" href="' . App::config('url') . 'public/css/smjerindex.css">',
+           'javascript'=>'<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script> 
+           <script src="' . App::config('url') . 'public/js/vendor/tablesort.js"></script>
+           <script src="' . App::config('url') . 'public/js/indexSmjer.js"></script>'
        ]);
     }   
 

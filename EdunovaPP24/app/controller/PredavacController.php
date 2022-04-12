@@ -25,8 +25,17 @@ class PredavacController extends AutorizacijaController
 
     public function index()
     {
+        $predavaci = Predavac::read();
+        foreach($predavaci as $p){
+            if(file_exists(BP . 'public' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR
+            . 'predavaci' . DIRECTORY_SEPARATOR . $p->sifra . '.png' )){
+                $p->slika= App::config('url') . 'public/img/predavaci/' . $p->sifra . '.png';
+            }else{
+                $p->slika= App::config('url') . 'public/img/nepoznato.png';
+            }
+        }
        $this->view->render($this->viewDir . 'index',[
-           'predavaci'=>Predavac::read()
+           'predavaci'=>$predavaci
        ]);
     }   
 
@@ -53,7 +62,7 @@ class PredavacController extends AutorizacijaController
         if($_POST['sifra']==0){
             //prvo kontrole 
             if($this->kontrolaOIB($_POST['oib'])){
-                Predavac::create($_POST);
+                $sifra = Predavac::create($_POST);
             }else{
                 $this->view->render($this->viewDir . 'detalji',[
                     'predavac'=>(object)$_POST,
@@ -66,7 +75,16 @@ class PredavacController extends AutorizacijaController
         }else{
             //prvo kontrole 
             Predavac::update($_POST);
+            $sifra=$_POST['sifra'];
         }
+
+        if(isset($_FILES['slika'])){
+            move_uploaded_file($_FILES['slika']['tmp_name'], 
+            BP . 'public' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR
+             . 'predavaci' . DIRECTORY_SEPARATOR . $sifra . '.jpg'
+        );
+        }
+
         header('location:' . App::config('url').'predavac/index');
     }
 
@@ -107,11 +125,24 @@ class PredavacController extends AutorizacijaController
     }
 
 
+    public function trazipredavac($uvjet)
+    {
+        header('Content-type: application/json');
+        echo json_encode(Predavac::traziPredavac($uvjet));
+    }
 
 
 
-
-
+    public function dodajPredavac($ime,$prezime)
+    {
+        echo Predavac::create([
+            'ime'=>$ime,
+            'prezime'=>$prezime,
+            'oib'=>'',
+            'email'=>'',
+            'iban'=>''
+        ]);
+    }
 
 
 
