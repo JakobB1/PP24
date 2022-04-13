@@ -1,8 +1,8 @@
-drop database if exists gametrgovina;
-create database gametrgovina character set utf8mb4;
-use gametrgovina;
+drop database if exists cerera_edunovapp24;
+create database cerera_edunovapp24 character set utf8mb4;
+use cerera_edunovapp24;
 
-alter database gametrgovina character set utf8mb4;
+alter database cerera_edunovapp24 character set utf8mb4;
 
 create table operater(
     sifra           int not null primary key auto_increment,
