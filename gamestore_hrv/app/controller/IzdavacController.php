@@ -9,6 +9,8 @@ class IzdavacController extends AutorizacijaController
 
     public function index()
     {
-        $this->view->render($this->viewDir . 'index');
+        $this->view->render($this->viewDir . 'index',[
+            'izdavaci' => Izdavac::read()
+        ]);
     }
 }

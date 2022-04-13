@@ -1,1 +1,21 @@
-Rad s izdavačima
+
+<table>
+    <thead>
+        <tr>
+        <th>Naziv</th>
+        <th>Država</th>
+        <th>Webstranica</th>
+        <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($izdavaci as $izdavac): ?>
+            <tr>
+                <td><?=$izdavac->naziv?></td>
+                <td><?=$izdavac->drzava?></td>
+                <td><?=$izdavac->webstranica?></td>
+                <td></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
