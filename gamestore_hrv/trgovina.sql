@@ -115,4 +115,8 @@ insert into narudzba  (sifra,korisnik_id ,cijena,placanje ,datum) values
 (1, 1, 19.99, 'Mastercard', '2021-12-01 11:59:00'),
 (2, 2, 5.99, 'Paypal', '2020-12-01 11:59:00');
 
-select * from narudzba;
+insert into narudzba_igra (sifra,igra_id,narudzba_id)
+values (1, 1, 1),
+       (2, 2, 2);
+
+select * from narudzba_igra;
