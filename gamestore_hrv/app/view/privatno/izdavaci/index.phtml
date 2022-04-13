@@ -1,4 +1,14 @@
-
+<div class="grid-x">
+    <div class="cell large-6">
+        <h1 style="font-size: 1.5rem;">Izdavači</h1>
+    </div>
+    <div class="cell large-6" style="text-align: right;">
+        <a href="<?=App::config('url')?>izdavac/novi">
+            <i style="color: green;" title="Dodaj novi" 
+                class="fas fa-2x fa-plus-circle"></i>
+        </a>
+    </div>
+</div>
 <table>
     <thead>
         <tr>
@@ -14,7 +24,22 @@
                 <td><?=$izdavac->naziv?></td>
                 <td><?=$izdavac->drzava?></td>
                 <td><?=$izdavac->webstranica?></td>
-                <td></td>
+                <td>
+                <a href="<?=App::config('url')?>izdavac/promjena<?=$izdavac->sifra?>">
+                     <i title="Promjeni" 
+                         class="fas fa-2x fa-edit"></i>
+                </a>
+                <?php if($izdavac->igre==0): ?>
+                    <a onclick="return confirm('Sigurno obrisati <?=$izdavac->naziv?>?');" style="margin-left: 20px;" href="<?=App::config('url')?>izdavac/brisanje/<?=$izdavac->sifra?>">
+                        <i style="color: red" title="Obriši <?=$izdavac->naziv?>" 
+                            class="fas fa-2x fa-trash"></i>
+                    </a>  
+                <?php else:?>
+                    <i style="margin-left: 20px;color: gray" 
+                    title="Ne može se obrisati <?=$izdavac->naziv?> jer ima igre" 
+                            class="fas fa-2x fa-trash"></i>
+                <?php endif;?> 
+                </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
