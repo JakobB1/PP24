@@ -26,7 +26,7 @@
                 <td><?=$izdavac->webstranica?></td>
                 <td>
                 <a href="<?=App::config('url')?>izdavac/promjena<?=$izdavac->sifra?>">
-                     <i title="Promjeni" 
+                     <i title="Promjeni &quot;<?=$izdavac->naziv?>&quot;" 
                          class="fas fa-2x fa-edit"></i>
                 </a>
                 <?php if($izdavac->igre==0): ?>
