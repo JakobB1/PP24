@@ -10,13 +10,13 @@ if($_SERVER['SERVER_ADDR']==='127.0.0.1'){
         'lozinka'=>'edunova'
     ];
 }else{
-    $url='https://predavac01.edunova.hr/';
+    $url='https://polaznik36.edunova.hr/';
     $dev=false;
     $baza=[
         'server'=>'localhost',
-        'baza'=>'cesar_edunovapp24',
-        'korisnik'=>'cesar_korisnik',
-        'lozinka'=>'xs7v,uMlH8hl'
+        'baza'=>'cerera_edunovapp24',
+        'korisnik'=>'cerera_korisnik',
+        'lozinka'=>'5I;Efs8kIU,i'
     ];
 }
 
@@ -24,6 +24,6 @@ return [
     'dev'=>$dev,
     'url'=>$url,
     'rps'=>10, // rezultata po stranici
-    'naslovApp'=>'Gamestore APP',
+    'naslovApp'=>'Gametrgovina APP',
     'baza'=>$baza
 ];
