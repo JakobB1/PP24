@@ -13,4 +13,11 @@ class IzdavacController extends AutorizacijaController
             'izdavaci' => Izdavac::read()
         ]);
     }
+
+    public function brisanje($sifra)
+    {
+        Izdavac::delete($sifra);
+        //$this->index();
+        header('location:' . App::config('url').'izdavac/index');
+    }
 }

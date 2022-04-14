@@ -13,4 +13,11 @@ class RazvijacController extends AutorizacijaController
             'razvijaci' => Razvijac::read()
         ]);
     }
+
+    public function brisanje($sifra)
+    {
+        Razvijac::delete($sifra);
+        //$this->index();
+        header('location:' . App::config('url').'razvijac/index');
+    }
 }

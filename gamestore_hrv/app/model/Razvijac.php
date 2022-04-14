@@ -76,15 +76,17 @@ class Razvijac
     // }
 
     // //D - Delete
-    // public static function delete($sifra)
-    // {
-    //     $veza = DB::getInstanca();
-    //     $izraz = $veza->prepare('
+    public static function delete($sifra)
+    {
+        $veza = DB::getInstanca();
+        $izraz = $veza->prepare('
         
-    //     delete from razvijac where sifra=:sifra;
+            delete from razvijac where sifra=:sifra;
         
-    //     '); 
-    //     $izraz->execute(['sifra'=>$sifra]);
+        '); 
+        $izraz->execute(['sifra'=>$sifra]);
+
+    }
 
     // }
 }
