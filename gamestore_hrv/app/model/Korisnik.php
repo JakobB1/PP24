@@ -1,6 +1,6 @@
 <?php
 
-class Predlozak
+class Korisnik
 {
 
 
@@ -9,7 +9,15 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-        SQL select za promjenu
+            select k.sifra, 
+                k.ime,
+                k.prezime, 
+                k.korisnicko, 
+                k.oib, 
+                k.email 
+                from korisnik k left join narudzba n on
+                n.korisnik_id = k.sifra
+                where k.sifra = :parametar
         
         '); 
         $izraz->execute(['parametar'=>$kljuc]);
@@ -24,7 +32,14 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-        SQL SELECT lista za index
+        select k.sifra, 
+            k.ime,
+            k.prezime, 
+            k.korisnicko, 
+            k.oib, 
+            k.email 
+            from korisnik k left join narudzba n on
+            n.korisnik_id = k.sifra
         
         '); 
         $izraz->execute();
@@ -38,7 +53,8 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-        SQL INSERT
+        insert into korisnik(ime,prezime,korisnicko,oib,email)
+        values (:ime,:prezime,:korisnicko,:oib,:email);
         
         '); 
         $izraz->execute($parametri);
@@ -52,7 +68,13 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-        SQL UPDATE
+        update korisnik set 
+                ime=:naziv,
+                prezime=:prezime,
+                korisnicko=:korisnicko,
+                oib=:oib,
+                email=:email
+                where sifra=:sifra;
         
         '); 
         $izraz->execute($parametri);
@@ -65,7 +87,7 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-            SQL DELETE
+             delete from korisnik where sifra=:sifra;
         
         '); 
         $izraz->execute(['sifra'=>$sifra]);
