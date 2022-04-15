@@ -58,7 +58,7 @@ class Igra
         $izraz = $veza->prepare('
         
         insert into igra(naziv,zanr,cijena,datumizlaska,razvijac_id,izdavac_id)
-        values (:naziv,:zanr,:cijena,:datumizlaska,:razvijac_id,:izdavac_id);
+        values (:naziv,:zanr,:cijena,:datumizlaska,:razvijac,:izdavac);
         
         '); 
         $izraz->execute($parametri);
@@ -77,8 +77,8 @@ class Igra
                 zanr=:zanr,
                 cijena=:cijena,
                 datumizlaska=:datumizlaska,
-                razvijac_id=:razvijac_id,
-                izdavac_id=:izdavac_id
+                razvijac_id=:razvijac,
+                izdavac_id=:izdavac
                 where sifra=:sifra;
 
         
