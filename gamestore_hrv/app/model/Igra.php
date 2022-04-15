@@ -75,7 +75,7 @@ class Igra
         update igra set 
                 naziv=:naziv,
                 zanr=:zanr,
-                cijena=:cijena
+                cijena=:cijena,
                 datumizlaska=:datumizlaska,
                 razvijac_id=:razvijac_id,
                 izdavac_id=:izdavac_id
