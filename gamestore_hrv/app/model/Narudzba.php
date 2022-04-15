@@ -1,6 +1,6 @@
 <?php
 
-class Predlozak
+class Narudzba
 {
 
     // select n.sifra          ** OPCIJA 1 readone
@@ -27,7 +27,18 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-        
+        select n.sifra 
+        , k.ime 
+        , k.prezime 
+        , n.cijena 
+        , n.placanje 
+        , n.datum 
+        , i.naziv
+        from narudzba n 
+        inner join korisnik k on n.korisnik_id = k.sifra 
+        inner join narudzba_igra ni on n.sifra = ni.narudzba_id
+        inner join igra i on ni.igra_id = i.sifra 
+        where n.sifra = :parametar 
         
         '); 
         $izraz->execute(['parametar'=>$kljuc]);
@@ -42,12 +53,17 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-            select n.sifra , k.ime , k.prezime , n.cijena , n.placanje , n.datum 
-            , count(ni.igra_id) as igre
+            select n.sifra 
+            , k.ime 
+            , k.prezime 
+            , n.cijena 
+            , n.placanje 
+            , n.datum 
+            , i.naziv
             from narudzba n 
             inner join korisnik k on n.korisnik_id = k.sifra 
-            left join narudzba_igra ni on n.sifra = ni.narudzba_id
-            group by n.sifra , k.ime , k.prezime , n.cijena , n.placanje , n.datum
+            inner join narudzba_igra ni on n.sifra = ni.narudzba_id
+            inner join igra i on ni.igra_id = i.sifra
         
         '); 
         $izraz->execute();
@@ -79,7 +95,8 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-        SQL INSERT
+            insert into narudzba (korisnik_id,cijena,placanje,datum)
+            values (:korisnik,:cijena,:placanje,:datum);
         
         '); 
         $izraz->execute($parametri);
@@ -93,7 +110,12 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-        SQL UPDATE
+        update narudzba set 
+                korisnik_id=:korisnik,
+                cijena=:cijena,
+                placanje=:placanje,
+                datum=:datum
+                where sifra=:sifra;
         
         '); 
         $izraz->execute($parametri);
@@ -106,7 +128,7 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-            SQL DELETE
+             delete from narudzba where sifra=:sifra;
         
         '); 
         $izraz->execute(['sifra'=>$sifra]);
