@@ -1,6 +1,6 @@
 <?php
 
-class Predlozak
+class Igra
 {
 
 
@@ -57,7 +57,8 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-          
+        insert into igra(naziv,zanr,cijena,datumizlaska,razvijac_id,izdavac_id)
+        values (:naziv,:zanr,:cijena,:datumizlaska,:razvijac_id,:izdavac_id);
         
         '); 
         $izraz->execute($parametri);
@@ -71,7 +72,15 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-        SQL UPDATE
+        update igra set 
+                naziv=:naziv,
+                zanr=:zanr,
+                cijena=:cijena
+                datumizlaska=:datumizlaska,
+                razvijac_id=:razvijac_id,
+                izdavac_id=:izdavac_id
+                where sifra=:sifra;
+
         
         '); 
         $izraz->execute($parametri);
@@ -84,7 +93,7 @@ class Predlozak
         $veza = DB::getInstanca();
         $izraz = $veza->prepare('
         
-            SQL DELETE
+            delete from igra where sifra=:sifra;
         
         '); 
         $izraz->execute(['sifra'=>$sifra]);
