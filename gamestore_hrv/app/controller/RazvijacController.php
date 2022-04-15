@@ -51,7 +51,7 @@ class RazvijacController extends AutorizacijaController
         && $this->kontrolaDrzava()
         && $this->kontrolaWebstranica()){
             Razvijac::create((array)$this->razvijac);
-            $this->index();
+            header('location:' . App::config('url').'razvijac/index');
         }else{
             $this->view->render($this->viewDir.'novi',[
                 'poruka'=>$this->poruka,
@@ -75,6 +75,13 @@ class RazvijacController extends AutorizacijaController
                 'razvijac'=>$this->razvijac
             ]);
         }
+    }
+
+    public function brisanje($sifra)
+    {
+        Razvijac::delete($sifra);
+        //$this->index();
+        header('location:' . App::config('url').'razvijac/index');
     }
 
     private function pripremiPodatke()
@@ -124,10 +131,5 @@ class RazvijacController extends AutorizacijaController
         return true;
     }
 
-    public function brisanje($sifra)
-    {
-        Razvijac::delete($sifra);
-        //$this->index();
-        header('location:' . App::config('url').'razvijac/index');
-    }
+    
 }
