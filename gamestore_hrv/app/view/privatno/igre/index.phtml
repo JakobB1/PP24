@@ -1,1 +1,29 @@
-Rad s igrama
+<div class="grix-x grid-padding-x">
+<?php include 'dodajNovi.phtml'?>
+        <?php foreach($igre as $igra): ?>
+            <div class="large-3 medium-4 cell">
+                <div class="callout" style="text-align: center; min-height: 220px;">
+                <h1 style="font-size: 1.5rem;">
+                <?=$igra->naziv?></h1>
+                <?=$igra->zanr?></h1>
+                <hr />
+                <?=$igra->izdavac?></h1>
+                <hr />
+                <?=$igra->razvijac?></h1>
+                <hr />
+                <?=$igra->datumizlaska?></h1>
+                <hr />
+                <?=$igra->cijena?></h1>
+                <hr />
+                <a href="<?=App::config('url')?>igra/xxxx/<?=$igra->sifra?>">
+                        <i title="Promjeni" 
+                            class="fas fa-2x fa-edit"></i>
+                    </a>
+                    
+                    
+                </div>
+                
+            </div>
+    <?php endforeach;?>
+    <?php include 'dodajNovi.phtml'?>
+</div>
