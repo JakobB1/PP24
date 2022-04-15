@@ -69,7 +69,7 @@ class Korisnik
         $izraz = $veza->prepare('
         
         update korisnik set 
-                ime=:naziv,
+                ime=:ime,
                 prezime=:prezime,
                 korisnicko=:korisnicko,
                 oib=:oib,

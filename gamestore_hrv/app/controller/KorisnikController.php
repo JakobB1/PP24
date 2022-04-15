@@ -32,13 +32,13 @@ class KorisnikController extends AutorizacijaController
     {
         if($sifra===0){
             $this->view->render($this->viewDir . 'detalji',[
-                'korisnik'=>$this->igra,
+                'korisnik'=>$this->korisnik,
                 'poruka'=>'Unesite tražene podatke',
                 'akcija'=>'Dodaj novi'
             ]);
         }else{
             $this->view->render($this->viewDir . 'detalji',[
-                'korisnik'=>Igra::readOne($sifra),
+                'korisnik'=>Korisnik::readOne($sifra),
                 'poruka'=>'Promjenite podatke',
                 'akcija'=>'Promjena'
             ]);

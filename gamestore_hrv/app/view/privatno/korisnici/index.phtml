@@ -1,3 +1,27 @@
-<pre>
-    <?php print_r($korisnici)?>
-</pre>
+<div class="grix-x grid-padding-x">
+<?php include 'dodajNovi.phtml'?>
+        <?php foreach($korisnici as $korisnik): ?>
+            <div class="large-3 medium-4 cell">
+                <div class="callout" style="text-align: center; min-height: 220px;">
+                <h1 style="font-size: 1.5rem;">
+                <?=$korisnik->ime?></h1>
+                <?=$korisnik->prezime?></h1>
+                <hr />
+                <?=$korisnik->korisnicko?></h1>
+                <hr />
+                <?=$korisnik->oib?></h1>
+                <hr />
+                <?=$korisnik->email?></h1>
+                <hr />
+                <a href="<?=App::config('url')?>korisnik/detalji/<?=$korisnik->sifra?>">
+                        <i title="Promjeni" 
+                            class="fas fa-2x fa-edit"></i>
+                    </a>
+                    
+                    
+                </div>
+                
+            </div>
+    <?php endforeach;?>
+    <?php include 'dodajNovi.phtml'?>
+</div>
