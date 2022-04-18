@@ -8,11 +8,13 @@ class NarudzbaController extends AutorizacijaController
                     'narudzbe' . DIRECTORY_SEPARATOR;
     private $poruka;
     private $narudzba;
+    private $korisnik;
 
     public function __construct()
     {
         parent::__construct();
         $this->narudzba = new stdClass();
+        $this->korisnik = new stdClass();
         $this->narudzba->sifra=0;
         $this->narudzba->korisnik='';
         $this->narudzba->cijena='';
@@ -23,7 +25,8 @@ class NarudzbaController extends AutorizacijaController
     public function index()
     {
         $this->view->render($this->viewDir . 'index',[
-            'narudzbe' => Narudzba::read()
+            'narudzbe' => Narudzba::read(),
+            'korisnici' => Korisnik::read()
         ]);
     }
 
@@ -31,7 +34,7 @@ class NarudzbaController extends AutorizacijaController
     {
         if($sifra===0){
             $this->view->render($this->viewDir . 'detalji',[
-                'narudzba'=>$this->korisnik,
+                'narudzba'=>$this->narudzba,
                 'poruka'=>'Unesite tražene podatke',
                 'akcija'=>'Dodaj novi'
             ]);

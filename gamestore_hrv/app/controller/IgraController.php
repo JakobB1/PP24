@@ -49,7 +49,7 @@ class IgraController extends AutorizacijaController
 
     public function akcija()
     {
-        if($_POST['sifra']===0){
+        if($_POST['sifra']==0){
             // prvo kontrole
             Igra::create($_POST);
         }else{
