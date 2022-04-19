@@ -24,8 +24,8 @@ class IgraController extends AutorizacijaController
         $this->igra->zanr='';
         $this->igra->cijena='';
         $this->igra->datumizlaska='';
-        $this->igra->razvijac='';
-        $this->igra->izdavac='';
+        $this->igra->razvijac_id='';
+        $this->igra->izdavac_id='';
         }
 
     public function index()
@@ -33,6 +33,8 @@ class IgraController extends AutorizacijaController
         $this->view->render($this->viewDir . 'index',[
             'entiteti' => Igra::read()
         ]);
+
+        
     }
 
     public function detalji($sifra=0)
@@ -41,13 +43,17 @@ class IgraController extends AutorizacijaController
             $this->view->render($this->viewDir . 'detalji',[
                 'igra'=>$this->igra,
                 'poruka'=>'Unesite tražene podatke',
-                'akcija'=>'Dodaj novi'
+                'akcija'=>'Dodaj novi',
+                'razvijaci'=>Razvijac::read(),
+                'izdavaci'=>Izdavac::read()
             ]);
         }else{
             $this->view->render($this->viewDir . 'detalji',[
                 'igra'=>Igra::readOne($sifra),
                 'poruka'=>'Promjenite podatke',
-                'akcija'=>'Promjena'
+                'akcija'=>'Promjena',
+                'razvijaci'=>Razvijac::read(),
+                'izdavaci'=>Izdavac::read()
             ]);
         }
 
@@ -60,6 +66,7 @@ class IgraController extends AutorizacijaController
             $sifra = Igra::create($_POST);
         }else{
             Igra::update($_POST);
+            
             $sifra=$_POST['sifra'];
         }
 

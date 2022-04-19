@@ -14,8 +14,8 @@ class Igra
             , i.zanr 
             , i.cijena 
             , i.datumizlaska 
-            , r.naziv as razvijac 
-            , iz.naziv as izdavac
+            , r.sifra as razvijac_id 
+            , iz.sifra as izdavac_id
             from igra i 
             inner join razvijac r on r.sifra = i.razvijac_id 
             inner join izdavac iz on iz.sifra = i.izdavac_id 
@@ -41,9 +41,12 @@ class Igra
             , i.datumizlaska 
             , r.naziv as razvijac 
             , iz.naziv as izdavac
+            , count(ni.sifra) as broj_narudzbi
             from igra i 
             inner join razvijac r on r.sifra = i.razvijac_id 
-            inner join izdavac iz on iz.sifra = i.izdavac_id;
+            inner join izdavac iz on iz.sifra = i.izdavac_id
+            left join narudzba_igra ni on i.sifra = ni.igra_id
+            group by  i.sifra, i.naziv, i.zanr, i.cijena , i.datumizlaska, r.naziv ,iz.naziv;
         
         '); 
         $izraz->execute();
@@ -66,8 +69,8 @@ class Igra
             'zanr'=>$parametri['zanr'],
             'cijena'=>$parametri['cijena'],
             'datumizlaska'=>$parametri['datumizlaska'],
-            'razvijac'=>$parametri['razvijac_id'],
-            'izdavac'=>$parametri['izdavac_id']
+            'razvijac'=>$parametri['razvijac'],
+            'izdavac'=>$parametri['izdavac']
         ]);
         
     }
@@ -90,7 +93,15 @@ class Igra
 
         
         '); 
-        $izraz->execute($parametri);
+        $izraz->execute([
+            'naziv'=>$parametri['naziv'],
+            'zanr'=>$parametri['zanr'],
+            'cijena'=>$parametri['cijena'],
+            'datumizlaska'=>$parametri['datumizlaska'],
+            'razvijac'=>$parametri['razvijac'],
+            'izdavac'=>$parametri['izdavac'],
+            'sifra'=>$parametri['sifra']
+        ]);
         
     }
 

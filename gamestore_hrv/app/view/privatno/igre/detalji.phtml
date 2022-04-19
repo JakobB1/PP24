@@ -25,14 +25,32 @@
         </label>
 
         <label>
-            Razvijač
-            <input type="id" name="razvijac_id" value="<?=$igra->razvijac?>" />
+                Razvijač
+                <select name="razvijac">
+                    <?php foreach($razvijaci as $razvijac): ?>
+                        <option 
+                        <?php if($razvijac->sifra==$igra->razvijac_id){
+                            echo 'selected="selected"';
+                        } ?>
+                        value="<?=$razvijac->sifra?>"><?=$razvijac->naziv?></option>
+                    <?php endforeach;?>
+                </select>
         </label>
 
+
         <label>
-            Izdavač
-            <input type="id" name="izdavac_id" value="<?=$igra->izdavac?>" />
+                Izdavač
+                <select name="izdavac">
+                    <?php foreach($izdavaci as $izdavac): ?>
+                        <option 
+                        <?php if($izdavac->sifra==$igra->izdavac_id){
+                            echo 'selected="selected"';
+                        } ?>
+                        value="<?=$izdavac->sifra?>"><?=$izdavac->naziv?></option>
+                    <?php endforeach;?>
+                </select>
         </label>
+        
 
 
 

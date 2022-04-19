@@ -12,7 +12,8 @@
 <table>
     <thead>
         <tr>
-        <th>Broj narudžbe korisnika</th>
+        <th>Korisnik</th>
+        <th>Broj igara</th>
         <th>Ukupna cijena</th>
         <th>Način plaćanja</th>
         <th>Datum kupnje</th>
@@ -22,7 +23,8 @@
     <tbody>
         <?php foreach($narudzbe as $narudzba): ?>
             <tr>
-                <td><?=$narudzba->korisnik?></td>
+                <td><?=$narudzba->ime?> <?=$narudzba->prezime?></td>
+                <td><?=$narudzba->broj_igara?></td>
                 <td><?=$narudzba->cijena?></td>
                 <td><?=$narudzba->placanje?></td>
                 <td><?=$narudzba->datum?></td>

@@ -4,7 +4,7 @@ class DB extends PDO
 {
     private static $instanca=null;
 
-    private function __construct($baza)
+    public function __construct($baza)
     {
         $dsn='mysql:host=' . $baza['server'] . ';dbname=' . $baza['baza'] . ';charset=utf8mb4';
         parent::__construct($dsn,$baza['korisnik'],$baza['lozinka']);

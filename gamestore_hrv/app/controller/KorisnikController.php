@@ -19,6 +19,7 @@ class KorisnikController extends AutorizacijaController
         $this->korisnik->korisnicko='';
         $this->korisnik->oib='';
         $this->korisnik->email='';
+        $this->korisnik->narudzba='';
         }
 
     public function index()

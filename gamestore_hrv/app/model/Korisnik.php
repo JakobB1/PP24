@@ -37,9 +37,11 @@ class Korisnik
             k.prezime, 
             k.korisnicko, 
             k.oib, 
-            k.email 
+            k.email,
+            count(n.sifra) as narudzba  
             from korisnik k left join narudzba n on
             n.korisnik_id = k.sifra
+            group by k.sifra,k.ime,k.prezime, k.korisnicko, k.oib, k.email
         
         '); 
         $izraz->execute();

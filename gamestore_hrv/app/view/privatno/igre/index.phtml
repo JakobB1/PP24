@@ -23,14 +23,14 @@
                             class="fas fa-2x fa-edit"></i>
                 </a>
 
-                <?php if(!$e->sifra==0): ?>
+                <?php if($e->broj_narudzbi==0):?>
                     <a onclick="return confirm('Sigurno obrisati?');" style="margin-left: 20px;" href="<?=App::config('url')?>igra/brisanje/<?=$e->sifra?>">
                         <i style="color: red" title="Obriši " 
                             class="fas fa-2x fa-trash"></i>
                     </a>  
                 <?php else:?>
                     <i style="margin-left: 20px;color: gray" 
-                    title="Ne može se obrisati jer ima razvijače" 
+                    title="Ne može se obrisati jer ima narudžbe" 
                             class="fas fa-2x fa-trash"></i>
                 <?php endif;?>
                     

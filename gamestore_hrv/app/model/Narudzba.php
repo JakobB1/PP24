@@ -34,11 +34,13 @@ class Narudzba
         , n.placanje 
         , n.datum 
         , i.naziv
+        , count(ni.sifra) as broj_igara
         from narudzba n 
         inner join korisnik k on n.korisnik_id = k.sifra 
         inner join narudzba_igra ni on n.sifra = ni.narudzba_id
         inner join igra i on ni.igra_id = i.sifra 
         where n.sifra = :parametar 
+        group by n.sifra , k.ime , k.prezime , n.cijena , n.placanje , n.datum , i.naziv;
         
         '); 
         $izraz->execute(['parametar'=>$kljuc]);
@@ -60,10 +62,12 @@ class Narudzba
             , n.placanje 
             , n.datum 
             , i.naziv
+            , count(ni.sifra) as broj_igara
             from narudzba n 
             inner join korisnik k on n.korisnik_id = k.sifra 
             inner join narudzba_igra ni on n.sifra = ni.narudzba_id
             inner join igra i on ni.igra_id = i.sifra
+            group by n.sifra , k.ime , k.prezime , n.cijena , n.placanje , n.datum , i.naziv;
         
         '); 
         $izraz->execute();

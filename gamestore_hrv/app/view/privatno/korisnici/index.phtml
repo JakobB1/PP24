@@ -18,7 +18,7 @@
                             class="fas fa-2x fa-edit"></i>
                 </a>
 
-                <?php if(!$e->sifra==0): ?>
+                <?php if($e->narudzba==0): ?>
                     <a onclick="return confirm('Sigurno obrisati?');" style="margin-left: 20px;" href="<?=App::config('url')?>korisnik/brisanje/<?=$e->sifra?>">
                         <i style="color: red" title="Obriši " 
                             class="fas fa-2x fa-trash"></i>
