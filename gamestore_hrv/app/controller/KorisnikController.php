@@ -48,7 +48,7 @@ class KorisnikController extends AutorizacijaController
 
     public function akcija()
     {
-        if($_POST['sifra']===0){
+        if($_POST['sifra']==0){
             // prvo kontrole
             Korisnik::create($_POST);
         }else{
