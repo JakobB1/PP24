@@ -57,10 +57,20 @@ class IgraController extends AutorizacijaController
     {
         if($_POST['sifra']==0){
             // prvo kontrole
-            Igra::create($_POST);
+            $sifra = Igra::create($_POST);
         }else{
             Igra::update($_POST);
+            $sifra=$_POST['sifra'];
         }
+
+        if(isset($_FILES['slika'])){
+            move_uploaded_file($_FILES['slika']['tmp_name'], 
+            BP . 'public' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR
+             . 'igre' . DIRECTORY_SEPARATOR . $sifra . '.jpg'
+        );
+        }
+
+
         header('location:' . App::config('url').'igra/index');
 
     }
