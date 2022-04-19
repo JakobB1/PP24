@@ -60,7 +60,7 @@ class KorisnikController extends AutorizacijaController
 
     public function brisanje($sifra)
     {
-        Igra::delete($sifra);
-         
+        Korisnik::delete($sifra);
+        header('location:' . App::config('url').'korisnik/index');
     }
 }

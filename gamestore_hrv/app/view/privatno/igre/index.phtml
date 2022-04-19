@@ -18,8 +18,18 @@
                 <a href="<?=App::config('url')?>igra/detalji/<?=$igra->sifra?>">
                         <i title="Promjeni" 
                             class="fas fa-2x fa-edit"></i>
-                    </a>
-                    
+                </a>
+
+                <?php if(!$igra->sifra==0): ?>
+                    <a onclick="return confirm('Sigurno obrisati?');" style="margin-left: 20px;" href="<?=App::config('url')?>igra/brisanje/<?=$igra->sifra?>">
+                        <i style="color: red" title="Obriši " 
+                            class="fas fa-2x fa-trash"></i>
+                    </a>  
+                <?php else:?>
+                    <i style="margin-left: 20px;color: gray" 
+                    title="Ne može se obrisati jer ima razvijače" 
+                            class="fas fa-2x fa-trash"></i>
+                <?php endif;?>
                     
                 </div>
                 

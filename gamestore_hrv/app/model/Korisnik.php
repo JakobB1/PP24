@@ -57,7 +57,13 @@ class Korisnik
         values (:ime,:prezime,:korisnicko,:oib,:email);
         
         '); 
-        $izraz->execute($parametri);
+        $izraz->execute([
+            'ime'=>$parametri['ime'],
+            'prezime'=>$parametri['prezime'],
+            'korisnicko'=>$parametri['korisnicko'],
+            'oib'=>$parametri['oib'],
+            'email'=>$parametri['email']
+        ]);
         
     }
     

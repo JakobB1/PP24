@@ -8,11 +8,17 @@ class IgraController extends AutorizacijaController
                     'igre' . DIRECTORY_SEPARATOR;
     private $poruka;
     private $igra;
+    private $razvijac;
+    private $izdavac;
+    private $narudzba_igra;
 
     public function __construct()
     {
         parent::__construct();
         $this->igra = new stdClass();
+        $this->razvijac = new stdClass();
+        $this->izdavac = new stdClass();
+        $this->narudzba_igra = new stdClass();
         $this->igra->sifra=0;
         $this->igra->naziv='';
         $this->igra->zanr='';
@@ -114,7 +120,7 @@ class IgraController extends AutorizacijaController
     public function brisanje($sifra)
     {
         Igra::delete($sifra);
-         
+        header('location:' . App::config('url').'igra/index');
     }
 
     // private function pripremiPodatke()

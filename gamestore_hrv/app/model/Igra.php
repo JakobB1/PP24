@@ -61,7 +61,14 @@ class Igra
         values (:naziv,:zanr,:cijena,:datumizlaska,:razvijac,:izdavac);
         
         '); 
-        $izraz->execute($parametri);
+        $izraz->execute([
+            'naziv'=>$parametri['naziv'],
+            'zanr'=>$parametri['zanr'],
+            'cijena'=>$parametri['cijena'],
+            'datumizlaska'=>$parametri['datumizlaska'],
+            'razvijac'=>$parametri['razvijac_id'],
+            'izdavac'=>$parametri['izdavac_id']
+        ]);
         
     }
     
