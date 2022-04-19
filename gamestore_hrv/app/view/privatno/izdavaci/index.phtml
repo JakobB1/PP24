@@ -19,24 +19,24 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach($izdavaci as $izdavac): ?>
+        <?php foreach($entiteti as $e): ?>
             <tr>
-                <td><?=$izdavac->naziv?></td>
-                <td><?=$izdavac->drzava?></td>
-                <td><?=$izdavac->webstranica?></td>
+                <td><?=$e->naziv?></td>
+                <td><?=$e->drzava?></td>
+                <td><?=$e->webstranica?></td>
                 <td>
-                <a href="<?=App::config('url')?>izdavac/promjena/<?=$izdavac->sifra?>">
-                     <i title="Promjeni &quot;<?=$izdavac->naziv?>&quot;" 
+                <a href="<?=App::config('url')?>izdavac/promjena/<?=$e->sifra?>">
+                     <i title="Promjeni &quot;<?=$e->naziv?>&quot;" 
                          class="fas fa-2x fa-edit"></i>
                 </a>
-                <?php if($izdavac->igre==0): ?>
-                    <a onclick="return confirm('Sigurno obrisati <?=$izdavac->naziv?>?');" style="margin-left: 20px;" href="<?=App::config('url')?>izdavac/brisanje/<?=$izdavac->sifra?>">
-                        <i style="color: red" title="Obriši <?=$izdavac->naziv?>" 
+                <?php if($e->igre==0): ?>
+                    <a onclick="return confirm('Sigurno obrisati <?=$e->naziv?>?');" style="margin-left: 20px;" href="<?=App::config('url')?>izdavac/brisanje/<?=$e->sifra?>">
+                        <i style="color: red" title="Obriši <?=$e->naziv?>" 
                             class="fas fa-2x fa-trash"></i>
                     </a>  
                 <?php else:?>
                     <i style="margin-left: 20px;color: gray" 
-                    title="Ne može se obrisati <?=$izdavac->naziv?> jer ima igre" 
+                    title="Ne može se obrisati <?=$e->naziv?> jer ima igre" 
                             class="fas fa-2x fa-trash"></i>
                 <?php endif;?> 
                 </td>

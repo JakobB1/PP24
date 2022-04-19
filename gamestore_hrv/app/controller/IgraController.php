@@ -31,7 +31,7 @@ class IgraController extends AutorizacijaController
     public function index()
     {
         $this->view->render($this->viewDir . 'index',[
-            'igre' => Igra::read()
+            'entiteti' => Igra::read()
         ]);
     }
 

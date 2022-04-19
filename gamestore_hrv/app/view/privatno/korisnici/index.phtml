@@ -1,25 +1,25 @@
 <div class="grix-x grid-padding-x">
 <?php include 'dodajNovi.phtml'?>
-        <?php foreach($korisnici as $korisnik): ?>
+        <?php foreach($entiteti as $e): ?>
             <div class="large-3 medium-4 cell">
                 <div class="callout" style="text-align: center; min-height: 220px;">
                 <h1 style="font-size: 1.5rem;">
-                <?=$korisnik->ime?></h1>
-                <?=$korisnik->prezime?></h1>
+                <?=$e->ime?></h1>
+                <?=$e->prezime?></h1>
                 <hr />
-                <?=$korisnik->korisnicko?></h1>
+                <?=$e->korisnicko?></h1>
                 <hr />
-                <?=$korisnik->oib?></h1>
+                <?=$e->oib?></h1>
                 <hr />
-                <?=$korisnik->email?></h1>
+                <?=$e->email?></h1>
                 <hr />
-                <a href="<?=App::config('url')?>korisnik/detalji/<?=$korisnik->sifra?>">
+                <a href="<?=App::config('url')?>korisnik/detalji/<?=$e->sifra?>">
                         <i title="Promjeni" 
                             class="fas fa-2x fa-edit"></i>
                 </a>
 
-                <?php if(!$korisnik->sifra==0): ?>
-                    <a onclick="return confirm('Sigurno obrisati?');" style="margin-left: 20px;" href="<?=App::config('url')?>korisnik/brisanje/<?=$korisnik->sifra?>">
+                <?php if(!$e->sifra==0): ?>
+                    <a onclick="return confirm('Sigurno obrisati?');" style="margin-left: 20px;" href="<?=App::config('url')?>korisnik/brisanje/<?=$e->sifra?>">
                         <i style="color: red" title="Obriši " 
                             class="fas fa-2x fa-trash"></i>
                     </a>  

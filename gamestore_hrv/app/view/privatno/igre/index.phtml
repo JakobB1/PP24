@@ -1,27 +1,27 @@
 <div class="grix-x grid-padding-x">
 <?php include 'dodajNovi.phtml'?>
-        <?php foreach($igre as $igra): ?>
+        <?php foreach($entiteti as $e): ?>
             <div class="large-3 medium-4 cell">
                 <div class="callout" style="text-align: center; min-height: 220px;">
                 <h1 style="font-size: 1.5rem;">
-                <?=$igra->naziv?></h1>
-                <?=$igra->zanr?></h1>
+                <?=$e->naziv?></h1>
+                <?=$e->zanr?></h1>
                 <hr />
-                <?=$igra->izdavac?></h1>
+                <?=$e->izdavac?></h1>
                 <hr />
-                <?=$igra->razvijac?></h1>
+                <?=$e->razvijac?></h1>
                 <hr />
-                <?=$igra->datumizlaska?></h1>
+                <?=$e->datumizlaska?></h1>
                 <hr />
-                <?=$igra->cijena?></h1>
+                <?=$e->cijena?></h1>
                 <hr />
-                <a href="<?=App::config('url')?>igra/detalji/<?=$igra->sifra?>">
+                <a href="<?=App::config('url')?>igra/detalji/<?=$e->sifra?>">
                         <i title="Promjeni" 
                             class="fas fa-2x fa-edit"></i>
                 </a>
 
-                <?php if(!$igra->sifra==0): ?>
-                    <a onclick="return confirm('Sigurno obrisati?');" style="margin-left: 20px;" href="<?=App::config('url')?>igra/brisanje/<?=$igra->sifra?>">
+                <?php if(!$e->sifra==0): ?>
+                    <a onclick="return confirm('Sigurno obrisati?');" style="margin-left: 20px;" href="<?=App::config('url')?>igra/brisanje/<?=$e->sifra?>">
                         <i style="color: red" title="Obriši " 
                             class="fas fa-2x fa-trash"></i>
                     </a>  

@@ -24,7 +24,7 @@ class KorisnikController extends AutorizacijaController
     public function index()
     {
         $this->view->render($this->viewDir . 'index',[
-            'korisnici' => Korisnik::read()
+            'entiteti' => Korisnik::read()
         ]);
     }
 
