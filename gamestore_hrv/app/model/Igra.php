@@ -58,6 +58,7 @@ class Igra
     public static function create($parametri)
     {
         $veza = DB::getInstanca();
+        $veza->beginTransaction();
         $izraz = $veza->prepare('
         
         insert into igra(naziv,zanr,cijena,datumizlaska,razvijac_id,izdavac_id)
@@ -72,7 +73,11 @@ class Igra
             'razvijac'=>$parametri['razvijac'],
             'izdavac'=>$parametri['izdavac']
         ]);
-        
+
+        $zadnjaSifra = $veza->lastInsertId();
+        $sifraIgra = $veza->lastInsertId();
+        $veza->commit();   
+        return $sifraIgra;
     }
     
 
